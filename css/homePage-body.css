@@ -7,6 +7,7 @@
     justify-content: flex-start; 
     align-items: center;
     overflow: hidden; 
+    margin-bottom: 48px;
 }
 
 .body-1 {
@@ -205,4 +206,213 @@
 .card-price {
     font-size: 1.1rem;
     color: #9a9a9a; 
+}
+
+.body-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 80px);
+    gap: 8px;
+    width: 100%;
+}
+
+.div1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 6 / span 6;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+    grid-column-start: 3;
+}
+
+.div3 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 5;
+}
+
+.div4 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 5;
+
+    background-image: url('../src/image/background/div4.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div1, .div2, .div3, .div4 {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.div2 img, .div3 img, .div4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.div1 {
+    background-color: rgba(222, 142, 22, 0.252);
+}
+
+.div1 img {
+    position: absolute;
+    width:  70%;
+    height: 100%;
+    top: 0px;
+    right: 20px; 
+    transition: transform 0.3s ease;
+}
+
+.div2 {
+    background-color: #fff195;
+}
+
+.div2 img{
+    position: absolute;
+    width:  70%;
+    height: 100%;
+    top: 0px;
+    right: -50px; 
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.div3:hover img, .div4:hover img {
+    transform: scale(1.1);
+}
+
+.div1:hover img{
+    transform: scale(1.2) translateY(40px);
+}
+
+.div2:hover img{
+    transform: scale(1.3) translateY(20px);
+}
+
+.overlay {
+    position: absolute;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.overlay-btn {
+    position: absolute;
+    background-color: white; 
+    color: black;
+    padding: 10px 20px;
+    margin: 20px; 
+    border: none; 
+    font-size: 16px; 
+    font-weight: bold;
+    cursor: pointer; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.overlay-btn:hover {
+    background-color: #f1f1f1; 
+}
+
+.div1 .overlay {
+    top: 10px;
+    left: 10px;
+    width: 50%;
+    color: black;
+    font-weight: bold; 
+}
+
+.div1 .overlay p:nth-child(1){
+    font-size: 1.2vw;
+    font-weight: 525;
+    margin-top: 18px;
+    color: rgb(116, 116, 116);
+}
+
+.div1 .overlay p:nth-child(2){
+    margin-top: 18px;
+    font-size: 3vw;
+}
+
+.div1 .overlay-btn{
+    top: 170px;
+}
+
+.div2 .overlay {
+    top: 20px;
+    left: 10px;
+    width: 50%;
+    color: black;
+    font-weight: bold; 
+}
+
+.div2 .overlay p:nth-child(1){
+    font-size: 3vw;
+}
+
+.div2 .overlay p:nth-child(2){
+    margin-top: 14px;
+    font-size: 1.2vw;
+    font-weight: 525;
+    color: rgb(116, 116, 116);
+}
+
+.div2 .overlay-btn{
+    top: 170px;
+}
+
+.div3 .overlay {
+    top: 80px;
+    left: 10px;
+    width: 20%;
+    color: rgb(255, 255, 255);
+    font-size: 1.4vw;
+    font-weight: bold; 
+}
+
+.div3 .overlay-btn{
+    top: 10px;
+    left: 0px;
+}
+
+.div4 .overlay {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    font-weight: bold;
+}
+
+.div4 .overlay p:nth-child(1) {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    font-size: 1.3vw;
+    width: 20%;
+}
+
+.div4 .overlay p:nth-child(2) {
+    position: absolute;
+    right: 15px;
+    font-size: 6vw;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.div4:hover p:nth-child(2){
+    transform: scale(1.1) translateY(-40%);
+}
+
+.div4 .overlay-btn{
+    bottom: 0px;
+    left: 0px;
 }
