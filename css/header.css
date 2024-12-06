@@ -11,6 +11,8 @@
     left: 0;
     width: 100%;
     z-index: 1000; 
+
+    font-family: 'Playfair Display', serif; 
 }
 
 .header-logo a {
@@ -23,7 +25,8 @@
 .header-center ul {
     display: flex;
     list-style: none;
-    font-weight: bold;
+    font-size: large;
+    font-weight: 600;
     padding: 0;
     margin: 0;
     justify-content: space-evenly;

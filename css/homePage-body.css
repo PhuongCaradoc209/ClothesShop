@@ -124,6 +124,8 @@
     text-align: center;
     color: #333;
     margin: 50px;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif; 
 }
 
 .list-card {
@@ -144,6 +146,7 @@
     box-sizing: border-box;
     flex: 1 1 calc(25% - 20px);
     cursor: pointer;
+    font-family: 'Playfair Display', serif; 
 }
 
 @media (max-width: 1200px) {
@@ -195,17 +198,21 @@
 
 .card-category {
     font-size: 1rem;
-    color: #000; 
+    font-weight: 100;
+    color: #5a5a5a; 
 }
 
 .card-title {
     font-size: 1.2rem;
+    font-weight: 400;
     color: #000;
+    margin: 8px 0;
 }
 
 .card-price {
     font-size: 1.1rem;
     color: #9a9a9a; 
+    font-family: normal;
 }
 
 .body-3 {
@@ -214,6 +221,7 @@
     grid-template-rows: repeat(6, 80px);
     gap: 8px;
     width: 100%;
+    font-family: 'Playfair Display', serif; 
 }
 
 .div1 {
@@ -333,7 +341,7 @@
 
 .div1 .overlay p:nth-child(1){
     font-size: 1.2vw;
-    font-weight: 525;
+    font-weight: normal;
     margin-top: 18px;
     color: rgb(116, 116, 116);
 }
@@ -344,7 +352,7 @@
 }
 
 .div1 .overlay-btn{
-    top: 170px;
+    top: 200px;
 }
 
 .div2 .overlay {
@@ -367,11 +375,11 @@
 }
 
 .div2 .overlay-btn{
-    top: 170px;
+    top: 190px;
 }
 
 .div3 .overlay {
-    top: 80px;
+    top: 70px;
     left: 10px;
     width: 20%;
     color: rgb(255, 255, 255);
@@ -380,7 +388,7 @@
 }
 
 .div3 .overlay-btn{
-    top: 10px;
+    top: 5px;
     left: 0px;
 }
 
@@ -404,12 +412,13 @@
     right: 15px;
     font-size: 6vw;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-55%);
     transition: transform 0.3s ease;
+    font-family: 'Playfair Display', serif; 
 }
 
 .div4:hover p:nth-child(2){
-    transform: scale(1.1) translateY(-40%);
+    transform: scale(1.1) translateY(-50%);
 }
 
 .div4 .overlay-btn{
