@@ -8,8 +8,8 @@ const updateMenuForMobile = () => {
                 <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="dropdown">
-                <li><a href="/">Home</a></li>
-                <li><a href="/shop">Shop</a></li>
+                <li><a href="/html/homePage.html">Home</a></li>
+                <li><a href="/html/shopPage.html">Shop</a></li>
                 <li><a href="/about">About Us</a></li>
             </ul>
         `;
@@ -21,8 +21,8 @@ const updateMenuForMobile = () => {
     } else {
         menu.innerHTML = `
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/shop">Shop</a></li>
+                <li><a href="/html/homePage.html">Home</a></li>
+                <li><a href="/html/shopPage.html">Shop</a></li>
                 <li><a href="/about">About Us</a></li>
             </ul>
         `;
