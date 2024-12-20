@@ -29,6 +29,5 @@ const updateMenuForMobile = () => {
     }
 }
 
-// Gọi hàm khi tải trang và khi thay đổi kích thước màn hình
 window.addEventListener('resize', updateMenuForMobile);
 window.addEventListener('load', updateMenuForMobile);
