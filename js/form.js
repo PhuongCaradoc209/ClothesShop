@@ -1,19 +1,19 @@
-// class Statistic {
-//     constructor(size,length, width, bust, waist, hip) {
-//         this.size = size;
-//         this.length = length; // Chiều dài
-//         this.width = width;   // Chiều rộng
-//         this.bust = bust;     // Vòng 1
-//         this.waist = waist;   // Vòng 2
-//         this.hip = hip;       // Vòng 3
-//     }
-// }
+class Statistic {
+    constructor(size,length, width, bust, waist, hip) {
+        this.size = size;
+        this.length = length; // Chiều dài
+        this.width = width;   // Chiều rộng
+        this.bust = bust;     // Vòng 1
+        this.waist = waist;   // Vòng 2
+        this.hip = hip;       // Vòng 3
+    }
+}
 // Product Interface
 class Product {
     constructor(name) {
         this.name = name;  // Khởi tạo thuộc tính name
-        this.statistic = [];
-        // this.size = new Map();  // Khởi tạo Map cho thuộc tính size
+        // this.statistic = [];
+        this.size = new Map();  // Khởi tạo Map cho thuộc tính size
         this.size.set("XS", 0); //
         this.size.set("S", 16);
         this.size.set("M", 20.25);
@@ -53,7 +53,7 @@ class Shirt extends Product {
                 selectedSize = key; // Lưu lại kích thước phù hợp
             } else {
                 // Nếu BMI không lớn hơn giá trị hiện tại
-                if (gender === "fefemale") {
+                if (gender === "female") {
                     break; // Dừng tìm kiếm cho nữnữ
                 } else if (gender === "male") {
                     selectedSize = key; // Tăng kích thước cho nam
@@ -61,7 +61,7 @@ class Shirt extends Product {
                 }
             }
         }
-    
+        console.log(selectedSize);
         // Trả về kích thước hoặc thông báo mặc định
         return selectedSize || "Size not found";
     }
@@ -175,7 +175,6 @@ productCards.forEach((card) => {
 });
 
 submitBtn.addEventListener('click', () => {
-    suggestionSize.textContent = getSelectedGender();
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
     const weight = parseFloat(weightInput.value);  
     const height = parseFloat(heightInput.value) / 100; 
@@ -183,7 +182,6 @@ submitBtn.addEventListener('click', () => {
 
     // Lấy kích thước dựa trên thông tin giới tính, chiều cao và cân nặng
     suggestionSize.textContent = product.findSize(getSelectedGender(),height, weight);
-    ;
 });
 
 
