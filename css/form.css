@@ -220,5 +220,7 @@
     font-size: 15px; /* Giảm kích thước để phù hợp */
 }
 
-
-
+.announcement span {
+    font-size: 14px; 
+    color: #555; 
+}

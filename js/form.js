@@ -12,7 +12,8 @@ class Statistic {
 class Product {
     constructor(name) {
         this.name = name;  // Khởi tạo thuộc tính name
-        // this.statistic = [];
+        this.statisticMale = [];
+        this.statisticFemale = [];
         this.size = new Map();  // Khởi tạo Map cho thuộc tính size
         this.size.set("XS", 0); //
         this.size.set("S", 16);
@@ -22,18 +23,11 @@ class Product {
         this.size.set("XXL", 31.5);
     }
 
-    // setupStatistic(){
+    setupStatisticMale(){}
+    setupStatisticFemale(){}
+    findStatistic(){}
+    findSize(){}   
 
-    // }
-    // Phương thức findSize là trừu tượng, sẽ được cài đặt trong các lớp con
-    findSize() {
-        throw new Error("findSize method must be implemented");
-    }
-
-    // Phương thức getDetails là trừu tượng, sẽ được cài đặt trong các lớp con
-    getDetails() {
-        throw new Error("Method getDetails() should be implemented");
-    }
 }
 
 
@@ -41,6 +35,8 @@ class Product {
 class Shirt extends Product {
     constructor(name) {
         super(name);  // Gọi constructor của lớp cha (Product)
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
     }    
 
     findSize(gender, height, weight) {
@@ -54,7 +50,7 @@ class Shirt extends Product {
             } else {
                 // Nếu BMI không lớn hơn giá trị hiện tại
                 if (gender === "female") {
-                    break; // Dừng tìm kiếm cho nữnữ
+                    break; // Dừng tìm kiếm cho nữ
                 } else if (gender === "male") {
                     selectedSize = key; // Tăng kích thước cho nam
                     break;
@@ -66,9 +62,38 @@ class Shirt extends Product {
         return selectedSize || "Size not found";
     }
 
-    // setupStatistic(){
-    //     this.statistic.push(new Statistic(S,69,62,92,88,NaN));
-    // }
+    setupStatisticMale(){
+        this.statisticMale.push(new Statistic("XS",69,40.5,44,42,"N/A"));
+        this.statisticMale.push(new Statistic("S",69,42,46,44,"N/A"));
+        this.statisticMale.push(new Statistic("M",69,43.5,48,46,"N/A"));
+        this.statisticMale.push(new Statistic("L",71,45,50,48,"N/A"));
+        this.statisticMale.push(new Statistic("XL",71,46.5,52,50,"N/A"));
+        this.statisticMale.push(new Statistic("XXL",73,48,54,52,"N/A"));
+    }
+
+    setupStatisticFemale(){
+        this.statisticFemale.push(new Statistic("XS",67,41.5,53.5,51,"N/A"));
+        this.statisticFemale.push(new Statistic("S",69,42,55.5,53,"N/A"));
+        this.statisticFemale.push(new Statistic("M",71,43,57.5,55,"N/A"));
+        this.statisticFemale.push(new Statistic("L",73,44,59.5,57,"N/A"));
+        this.statisticFemale.push(new Statistic("XL",75,45.5,62.5,60,"N/A"));
+        this.statisticFemale.push(new Statistic("XXL",76,46.5,65.5,63,"N/A"));
+    } 
+
+    findStatistic(gender, size){
+        let result = null;
+
+        // Kiểm tra giới tính và tìm kiếm trong mảng phù hợp
+        if (gender === "male") {
+            result = this.statisticMale.find(stat => stat.size === size);
+        } else if (gender === "female") {
+            result = this.statisticFemale.find(stat => stat.size === size);
+        }
+
+
+        // Trả về đối tượng Statistic nếu tìm thấy, ngược lại trả về thông báo
+        return result || "Statistic not found";
+    }
     
 
     getDetails() {
@@ -76,7 +101,7 @@ class Shirt extends Product {
     }
 }
 
-class Pants extends Product {
+class Jacket extends Product {
     getDetails() {
         return "These are pants";
     }
@@ -125,11 +150,11 @@ class ConcreteClothesFactory extends ClothesFactory {
         switch(type) {
             case 'Shirt':
                 return new Shirt();
-            case 'Pants':
-                return new Pants();
+            case 'Jacket':
+                return new Jacket();
             case 'Skirt':
                 return new Skirt();
-            case 'T-Shirt':
+            case 'T-shirt':
                 return new TShirt();
             case 'Dress':
                 return new Dress();
@@ -159,6 +184,13 @@ const suggestionName = document.getElementById('suggestion-name');
 const suggestionSize= document.getElementById('size-value');
 const suggestionColor= document.getElementById('color-value');
 const suggestionPattern= document.getElementById('pattern-value');
+const suggestionLength= document.getElementById('length-value');
+const suggestionWidth= document.getElementById('width-value');
+const suggestionBust= document.getElementById('bust-value');
+const suggestionWaist= document.getElementById('waist-value');
+const suggestionHip= document.getElementById('hip-value');
+
+
 
 let name = '';
 
@@ -180,8 +212,19 @@ submitBtn.addEventListener('click', () => {
     const height = parseFloat(heightInput.value) / 100; 
     const product = factory.createProduct(name);
 
+    const productSize = product.findSize(getSelectedGender(),height, weight);
+
     // Lấy kích thước dựa trên thông tin giới tính, chiều cao và cân nặng
-    suggestionSize.textContent = product.findSize(getSelectedGender(),height, weight);
+    suggestionSize.textContent = productSize;
+    const statResult = product.findStatistic(getSelectedGender(),productSize);
+
+    if (statResult !== "Statistic not found" && statResult !== null) {
+        suggestionLength.textContent = statResult.length;
+        suggestionWidth.textContent =  statResult.width;
+        suggestionBust.textContent = statResult.bust;
+        suggestionWaist.textContent = statResult.waist;
+        suggestionHip.textContent = statResult.hip;
+    }
 });
 
 
@@ -229,7 +272,11 @@ function reset(){
     suggestionName.textContent = "";
     weightInput.value ="";
     heightInput.value ="";
-
+    suggestionLength.textContent = "";
+    suggestionWidth.textContent =  "";
+    suggestionBust.textContent = "";
+    suggestionWaist.textContent = "";
+    suggestionHip.textContent = "";
     
 }
 
