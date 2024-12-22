@@ -52,7 +52,7 @@
     height: 40px;
     transform: scale(1.2);
     font-family: "Mogra", cursive; 
-    transition: 1s ease;
+    transition: 0.6s ease;
 }
 
 .body-1 div button:hover{
