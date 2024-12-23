@@ -1,20 +1,21 @@
 .body-1 {
     margin-top: 130px;
     width: 100%;
-    height: 600px;
+    min-height: 600px;
     display: flex;
+
     justify-content: space-between;
     align-items: center; 
     position: relative; 
     border-radius: 20px;
     box-shadow: 0 0 37px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Castoro", serif;
 }
 
 .body-1-product-infor-left,
 .body-1-product-infor-right {
     flex: 1;
     
-    overflow: hidden; 
     display: flex;
     flex-direction: column;
 
@@ -31,15 +32,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0; 
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #d5d5d5;
+    padding: 30px;
+
+    aspect-ratio: 1/1;
+    width: 33vw; 
+    height: auto;
 }
 
 .body-1-product-image img {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
+    max-width: 100%; 
+    width: auto; 
+    height: auto; 
 }
 
 .body-1-product-infor-left {
@@ -53,16 +58,31 @@
 .body-1-product-infor-left div:nth-child(1){
     font-size: 15px;
     font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.body-1-product-infor-left div:nth-child(1)::after {
+    position: absolute;
+    bottom: 50%;
+    transform: translateX(-50%);
+    left: 85px;
+
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-button);
 }
 
 .body-1-product-infor-left div:nth-child(2){
-    font-size: 30px;
+    font-size: 36px;
     font-weight: bold;
 }
 
 .body-1-product-infor-left div:nth-child(3){
     margin-top: 30px;
     font-size: 15px;
+    line-height: 1.7;
 }
 
 .body-1-product-infor-right {
@@ -81,17 +101,18 @@ hr {
 .productRecommend button{
     padding: 10px 20px;
     border: 1px solid black;
-    background-color: black;
-    color: white;
+    background-color: var(--color-button);
+    color: var(--color-button-text);
     cursor: pointer;
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
+    font-family: "Castoro", serif;
 }
 
 .productRecommend button:hover{
-    background-color: #f0f0f0;
+    background-color: transparent;
     color: black;
     border: 1px solid black;
 }
@@ -105,13 +126,15 @@ hr {
 
 .size-options {
     display: flex;      
-    gap: 10px;            
+    flex-wrap: wrap;
+    gap: 10px;       
+    font-family: "DM Serif Text", serif;     
 }
 
 .size-option {
     aspect-ratio: 1/1;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border: 1px solid #000000;
     border-radius: 50%;
     cursor: pointer;
@@ -131,8 +154,8 @@ hr {
 }
 
 .size-option.active {
-    background-color: #020202;
-    color: white;
+    background-color: var(--color-button);
+    color: var(--color-button-text);
     font-weight: bold;
 }
 
@@ -144,6 +167,7 @@ input[type="hidden"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 20px;
 }
 
 .productPrice p{
@@ -160,6 +184,7 @@ input[type="hidden"] {
 .quantity-container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -179,8 +204,8 @@ input[type="hidden"] {
 .quantity-btn {
     aspect-ratio: 1/1;
     width: 30px;
-    background-color: black;
-    color: white;
+    background-color: var(--color-button);
+    color: var(--color-button-text);
     border: 1px solid #ccc;
     padding: 5px 10px;
     cursor: pointer;
@@ -210,8 +235,8 @@ input[type="hidden"] {
 }
 
 #addToCart, #buyNow {
-    background-color: #000000;
-    color: white;
+    background-color: var(--color-button);
+    color: var(--color-button-text);
     padding: 10px 20px;
     border: 1px solid #000000;
     cursor: pointer;
@@ -219,6 +244,7 @@ input[type="hidden"] {
     font-weight: bold;
     transition: background-color 0.3s ease;
     text-transform: uppercase;
+    font-family: "Castoro", serif;
 }
 
 #addToCart {
@@ -228,12 +254,12 @@ input[type="hidden"] {
 
 #buyNow:active {
     background-color: transparent;
-    color: black;
+    color: var(--color-button);
 }
 
 #addToCart:active {
     background-color: #000000;
-    color: white;
+    color: var(--color-button-text);
 }
 
 #buyNow:active,

@@ -17,4 +17,6 @@ body {
     --primary-color-1: #333;
     --primary-color-2: #fff;
     --color-cloud: #87A2FF;
+    --color-button: #0f0f0f;
+    --color-button-text: rgb(255, 255, 255);
 }
