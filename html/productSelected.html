@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--CSS IMPORT-->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/productSelected.css">
+
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/c276420fe8.js" crossorigin="anonymous"></script>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap"
+    rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Coiny&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Mogra&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        <nav class="header-menu">
+            <ul>
+                <li><a href="/html/homePage.html">Home</a></li>
+                <li><a href="/html/shopPage.html">Shop</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-logo">
+            <a href="/html/homePage.html">MyClothingStore</a>
+        </div>
+
+        <div class="header-right">
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-1">
+        <div class="body-1-product-infor-left">
+            <div id="productCategory"></div>
+            <div id="productTitle"></div>
+            <div id="productDescription">
+                A soft and breathable 100% cotton t-shirt, offering comfort and style for everyday wear. Available in multiple colors with a relaxed fit.
+            </div>
+        </div>
+        <div class="body-1-product-image">
+            <img id="productImage" alt="Product Image">
+        </div>
+        <div class="body-1-product-infor-right">
+            <div class="productRecommend">
+                <button>Recommend</button>
+            </div>
+            <hr>
+            <div id="productSize">
+                <div>Size</div>
+                <div class="size-options">
+                    <label class="size-option" for="sizeS">
+                        <input type="radio" name="size" value="S" id="sizeS" class="size-input">
+                        <span>S</span>
+                    </label>
+                    <label class="size-option" for="sizeM">
+                        <input type="radio" name="size" value="M" id="sizeM" class="size-input">
+                        <span>M</span>
+                    </label>
+                    <label class="size-option" for="sizeL">
+                        <input type="radio" name="size" value="L" id="sizeL" class="size-input">
+                        <span>L</span>
+                    </label>
+                    <label class="size-option" for="sizeXL">
+                        <input type="radio" name="size" value="XL" id="sizeXL" class="size-input">
+                        <span>XL</span>
+                    </label>
+                </div>
+                <input type="hidden" name="size" id="size" value="S">
+            </div>
+            <hr>
+            <div class="productPrice">
+                <p>Price</p>
+                <span id="productPrice"></span>
+            </div>
+            <hr>
+            <div class="quantity-container">
+                <label for="quantity">Quantity</label>
+                <div class="quantity-box">
+                    <button class="quantity-btn" id="decrease">-</button>
+                    <input type="number" id="quantity" value="1" min="1" readonly>
+                    <button class="quantity-btn" id="increase">+</button>
+                </div>
+            </div>
+            <div class="purchase-btn">
+                <button id="buyNow">Buy Now</button>
+                <button id="addToCart">Add to Cart</button>
+            </div>              
+        </div>
+    </div>
+</body>
+    <script src="/js/productSelected.js"></script>
+</html>
