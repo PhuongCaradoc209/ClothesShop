@@ -1,44 +1,3 @@
-const image = sessionStorage.getItem('productImage');
-const title = sessionStorage.getItem('productTitle');
-const category = sessionStorage.getItem('productCategory');
-const price = sessionStorage.getItem('productPrice');
-
-//DISPLAY PRODUCT INFORMATION
-document.getElementById('productImage').src = image;
-document.getElementById('productCategory').textContent = category;
-document.getElementById('productTitle').textContent = title;
-document.getElementById('productPrice').textContent = price;
-
-//DISPLAY PRODUCT SIZE
-const sizeOptions = document.querySelectorAll('.size-option');
-
-const selectedSize = document.getElementById('selectedSize');
-
-sizeOptions.forEach(option => {
-    option.addEventListener('click', function() {
-        sizeOptions.forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
-        const selectedValue = this.querySelector('input[type="radio"]').value;
-        selectedSize.textContent = `Selected Size: ${selectedValue}`;
-        document.getElementById('size').value = selectedValue;
-    });
-});
-
-//DISPLAY PRODUCT QUANTITY
-document.getElementById('increase').addEventListener('click', function() {
-    var quantityInput = document.getElementById('quantity');
-    var currentValue = parseInt(quantityInput.value, 10);
-    quantityInput.value = currentValue + 1;
-});
-
-document.getElementById('decrease').addEventListener('click', function() {
-    var quantityInput = document.getElementById('quantity');
-    var currentValue = parseInt(quantityInput.value, 10);
-    if (currentValue > 1) { 
-        quantityInput.value = currentValue - 1; 
-    }
-});  
-
 
 
 class Statistic {
@@ -213,6 +172,48 @@ class ConcreteClothesFactory extends ClothesFactory {
 }
 
 
+const image = sessionStorage.getItem('productImage');
+const title = sessionStorage.getItem('productTitle');
+const category = sessionStorage.getItem('productCategory');
+const price = sessionStorage.getItem('productPrice');
+
+//DISPLAY PRODUCT INFORMATION
+document.getElementById('productImage').src = image;
+document.getElementById('productCategory').textContent = category;
+document.getElementById('productTitle').textContent = title;
+document.getElementById('productPrice').textContent = price;
+
+//DISPLAY PRODUCT SIZE
+const sizeOptions = document.querySelectorAll('.size-option');
+
+const selectedSize = document.getElementById('selectedSize');
+
+sizeOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        sizeOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+        const selectedValue = this.querySelector('input[type="radio"]').value;
+        selectedSize.textContent = `Selected Size: ${selectedValue}`;
+        document.getElementById('size').value = selectedValue;
+    });
+});
+
+//DISPLAY PRODUCT QUANTITY
+document.getElementById('increase').addEventListener('click', function() {
+    var quantityInput = document.getElementById('quantity');
+    var currentValue = parseInt(quantityInput.value, 10);
+    quantityInput.value = currentValue + 1;
+});
+
+document.getElementById('decrease').addEventListener('click', function() {
+    var quantityInput = document.getElementById('quantity');
+    var currentValue = parseInt(quantityInput.value, 10);
+    if (currentValue > 1) { 
+        quantityInput.value = currentValue - 1; 
+    }
+});  
+
+
 const model = document.querySelector('.model');  // Model chứa form
 const closeBtn = document.querySelector('.form_header i');  // Nút đóng
 const submitBtn = document.querySelector('.submit_btn');  // Nút submit trong model
@@ -220,6 +221,9 @@ const genderRadios = document.getElementsByName('gender');// Lấy tất cả c�
 const skinToneRadios = document.getElementsByName('skintone');// Lấy tất cả các radio button có name là "skintone"
 const weightInput = document.getElementById('weight');
 const heightInput = document.getElementById('height');
+const recommend_btn = document.querySelector('.productRecommend');  
+const form = document.querySelector('.form');
+const information = document.querySelector('.information');
 
 const factory =  new ConcreteClothesFactory();
 
@@ -234,13 +238,17 @@ const suggestionBust= document.getElementById('bust-value');
 const suggestionWaist= document.getElementById('waist-value');
 const suggestionHip= document.getElementById('hip-value');
 
+recommend_btn.addEventListener('click' , () => {
+    model.classList.remove('hide');
+    suggestionImage.src = image;
+    suggestionName.textContent = title;
+});
 
 submitBtn.addEventListener('click', () => {
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
     const weight = parseFloat(weightInput.value);  
     const height = parseFloat(heightInput.value) / 100; 
-    const product = factory.createProduct(name);
-
+    const product = factory.createProduct(category);
     const productSize = product.findSize(getSelectedGender(),height, weight);
 
     // Lấy kích thước dựa trên thông tin giới tính, chiều cao và cân nặng
