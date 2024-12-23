@@ -209,35 +209,31 @@ input[type="hidden"] {
     margin: 40px 0;
 }
 
-#buyNow {
+#addToCart, #buyNow {
     background-color: #000000;
     color: white;
     padding: 10px 20px;
     border: 1px solid #000000;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
     transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
 #addToCart {
+    background-color: transparent;
+    color: black;
+}
+
+#buyNow:active {
+    background-color: transparent;
+    color: black;
+}
+
+#addToCart:active {
     background-color: #000000;
     color: white;
-    padding: 10px 20px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-#buyNow:hover {
-    background-color: transparent;
-    color: black;
-}
-
-#addToCart:hover {
-    background-color: transparent;
-    color: black;
 }
 
 #buyNow:active,
