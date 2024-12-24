@@ -171,6 +171,10 @@ class ConcreteClothesFactory extends ClothesFactory {
     }
 }
 
+//BACK BUTTON
+document.getElementById('backButton').addEventListener('click', function() {
+    window.history.back(); 
+});
 
 const image = sessionStorage.getItem('productImage');
 const title = sessionStorage.getItem('productTitle');
@@ -213,12 +217,36 @@ document.getElementById('decrease').addEventListener('click', function() {
     }
 });  
 
+//SKIN TONE IN FORM
+const skintoneOptions = document.querySelectorAll('.skintone-option');
+const selectedSkintone = document.getElementById('selectedSkintone');
+
+skintoneOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        skintoneOptions.forEach(opt => {
+            opt.classList.remove('active');
+            opt.style.backgroundColor = ''; 
+        });        
+
+        this.classList.add('active');
+        
+        const hoverColor = this.getAttribute('data-hover-color');
+        this.style.backgroundColor = hoverColor;
+
+        const selectedValue = this.querySelector('input[type="radio"]').value;
+        
+        selectedSkintone.textContent = `Selected Skin Tone: ${selectedValue}`;
+        
+        document.getElementById('skintone').value = selectedValue;
+    });
+});
+
 
 const model = document.querySelector('.model');  // Model chứa form
 const closeBtn = document.querySelector('.form_header i');  // Nút đóng
 const submitBtn = document.querySelector('.submit_btn');  // Nút submit trong model
 const genderRadios = document.getElementsByName('gender');// Lấy tất cả các radio button có name là "gender"
-const skinToneRadios = document.getElementsByName('skintone');// Lấy tất cả các radio button có name là "skintone"
+const skinToneRadios = document.querySelectorAll('input[name="skintone"]');// Lấy tất cả các radio button có name là "skintone"
 const weightInput = document.getElementById('weight');
 const heightInput = document.getElementById('height');
 const recommend_btn = document.querySelector('.productRecommend');  
@@ -303,6 +331,10 @@ function reset(){
     radio.checked = false; // Bỏ chọn radio
     });
 
+    skintoneOptions.forEach(opt => {
+        opt.classList.remove('active');
+        opt.style.backgroundColor = ''; 
+    });     
     suggestionSize.textContent = "";
     suggestionColor.textContent = "";
     suggestionImage.src ="";
@@ -329,5 +361,3 @@ function selectColor(skintone) {
             return "No color";  // Trường hợp giá trị không hợp lệ
     }
 }
-
-// 

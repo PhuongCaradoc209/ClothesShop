@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Coiny&family=Concert+One&family=DM+Serif+Text:ital@0;1&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Mogra&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Castoro:ital@0;1&family=Coiny&family=Concert+One&family=DM+Serif+Text:ital@0;1&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Mogra&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -63,6 +63,7 @@
 
     <div class="body-1">
         <div class="body-1-product-infor-left">
+            <div id="backButton"><i class="fa-solid fa-arrow-left"></i></div>
             <div id="productCategory"></div>
             <div id="productTitle"></div>
             <div id="productDescription">
@@ -149,32 +150,35 @@
                 </div>
 
                 <div class="weight-input">
-                    <label for="weight">Weight (kg)</label>
-                    <input type="number" id="weight" name="weight" placeholder="Input weight" min="1" max="300"
-                        step="0.1">
+                    <label for="weight">Weight</label>
+                    <input type="number" id="weight" name="weight" placeholder="kg" min="1" max="300"
+                        step="1">
                 </div>
 
                 <div class="height-input">
-                    <label for="height">Height (cm)</label>
-                    <input type="number" id="height" name="height" placeholder="Input height" min="1" max="300"
-                        step="0.1">
+                    <label for="height">Height</label>
+                    <input type="number" id="height" name="height" placeholder="cm" min="1" max="300"
+                        step="1">
                 </div>
 
-                <div class="skintone-selection">
-                    Skin tone
-                    <label>
-                        <input type="radio" name="skintone" value="Warm">
-                        <span>Warm</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="skintone" value="Neutral">
-                        <span>Neutral</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="skintone" value="Cold">
-                        <span>Cold</span>
-                    </label>
+                <div class="skintone">
+                    <div>Skin tone</div>
+                    <div class="skintone-options">
+                        <label class="skintone-option" for="skintoneWarm" data-hover-color="#dfac96">
+                            <input type="radio" name="skintone" value="Warm" id="skintoneWarm" class="skintone-input">
+                            <span>Warm</span>
+                        </label>
+                        <label class="skintone-option" for="skintoneNeutral" data-hover-color="#f1d9c7">
+                            <input type="radio" name="skintone" value="Neutral" id="skintoneNeutral" class="skintone-input">
+                            <span>Neutral</span>
+                        </label>
+                        <label class="skintone-option" for="skintoneCold" data-hover-color="#e2c6c0">
+                            <input type="radio" name="skintone" value="Cold" id="skintoneCold" class="skintone-input">
+                            <span>Cold</span>
+                        </label>
+                    </div>
                 </div>
+                
                 <button class="submit_btn">
                     Submit
                 </button>
