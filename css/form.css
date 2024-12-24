@@ -12,23 +12,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    
-}
-
-.hide{
-    display: none;
+    gap: 80px;
 }
 
 .form{
     width: 400px;
-    height: 400px;
+    height: 450px;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    font-family: "DM Serif Text", serif;     
 }
 
 .form_header{
@@ -36,15 +32,18 @@
     height: 15%;
     display: flex;
     justify-content: space-between;
-    padding: 15px;
-    background: var(--color-cloud);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+    align-items: center;
+    padding: 10px 30px;
+    background: var(--color-button);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #4f4f4fd4;
 }
 
 .form_body {
-    padding: 20px;
+    padding: 20px 0px ;
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -52,14 +51,13 @@
 }
 
 .gender-selection,
-.skintone-selection,
 .weight-input,
 .height-input {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    font-size: 16px;
-    
+    font-size: 15px;
+    text-transform: uppercase;
 }
 
 .weight-input,.height-input{
@@ -70,6 +68,7 @@
 .height-input input {
     padding: 10px;
     font-size: 14px;
+    width: 70px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
@@ -81,27 +80,85 @@
     border-color: #4CAF50;
 }
 
+.skintone div:nth-child(1) {
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.skintone-options {
+    display: flex;      
+    flex-wrap: wrap;
+    gap: 40px;       
+}
+
+.skintone-option {
+    aspect-ratio: 1/1;
+    width: 50px;
+    height: auto;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    transform: scale(1.2);
+}
+
+.skintone-option input[type="radio"] {
+    display: none;  
+}
+
+.skintone-option:nth-child(1):hover{
+    background-color: #dfac96;
+}
+
+.skintone-option:nth-child(2):hover{
+    background-color: #f1d9c7;
+}
+
+.skintone-option:nth-child(3):hover{
+    background-color: #e2c6c0;
+}
+
+.skintone-option.active {
+}
+
+.skintone-option.active:hover {
+    color: var(--color-button);
+}
+
+input[type="hidden"] {
+    display: none;  
+}
+
 .submit_btn {
-    width: 50%;
+    width: 90px;
     height: 40px; 
     align-self: center;
-    background-color: var(--color-cloud); 
+    background-color: var(--color-button); 
     color: white; /* Màu chữ trắng */
-    font-size: 16px; 
-    border: none;
-    border-radius: 15px; 
+    font-size: 14px; 
+    border: 1px solid var(--color-button);
     outline: none;
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng khi hover */
+    text-transform: uppercase; /* Chuyển đổi chữ hoa */
+    font-family: "DM Serif Text", serif;     
+
 }
 
 .submit_btn:hover {
-    background-color: var(--color-cloud); 
+    background-color: var(--color-button-text);
+    color: var(--color-button);
     transform: scale(1.05); /* Tăng nhẹ kích thước khi hover */
 }
 
 .submit_btn:active {
-    background-color: var(--color-cloud); 
+    background-color: var(--color-button-text);
+    color: var(--color-button);
     transform: scale(0.98); /* Nhỏ lại một chút khi nhấn */
 }
 
@@ -111,15 +168,14 @@
 }
 
 .close_btn:active {
-    background-color: var(--color-cloud); 
     transform: scale(0.98); /* Nhỏ lại một chút khi nhấn */
 }
 
 .information{
-    width: 700px;
-    height: 400px;
+    width: 900px;
+    height: 450px;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,8 +187,9 @@
     height: 15%;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 15px;
-    background: var(--color-cloud);
+    background: var(--color-button);
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -147,7 +204,7 @@
 
 .in_body_1 {
     height: 100%; 
-    width: 30%;
+    width: 70%;
     display: flex; 
     flex-direction: column;
     justify-content: center; 
@@ -158,8 +215,9 @@
 }
 
 .in_body_1 img {
-    width: 125px; 
-    height: 125px; 
+    aspect-ratio: 1/1;
+    width: 250px; 
+    height: auto; 
     object-fit: cover; 
     border-radius: 8px; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33); 
@@ -223,4 +281,8 @@
 .announcement span {
     font-size: 14px; 
     color: #555; 
+}
+
+.hide{
+    display: none;
 }
