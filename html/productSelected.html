@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--CSS IMPORT-->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/productSelected.css">
+    <link rel="stylesheet" href="../css/form.css">
+
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/c276420fe8.js" crossorigin="anonymous"></script>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap"
+    rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Coiny&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Mogra&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Coiny&family=Concert+One&family=DM+Serif+Text:ital@0;1&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Mogra&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Castoro:ital@0;1&family=Coiny&family=Concert+One&family=DM+Serif+Text:ital@0;1&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Mogra&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<body>
+    <div class="header">
+        <nav class="header-menu">
+            <ul>
+                <li><a href="/html/homePage.html">Home</a></li>
+                <li><a href="/html/shopPage.html">Shop</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-logo">
+            <a href="/html/homePage.html">MyClothingStore</a>
+        </div>
+
+        <div class="header-right">
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-1">
+        <div class="body-1-product-infor-left">
+            <div id="backButton"><i class="fa-solid fa-arrow-left"></i></div>
+            <div id="productCategory"></div>
+            <div id="productTitle"></div>
+            <div id="productDescription">
+                A soft and breathable 100% cotton t-shirt, offering comfort and style for everyday wear. Available in multiple colors with a relaxed fit.
+            </div>
+        </div>
+        <div class="body-1-product-image">
+            <img id="productImage" alt="Product Image">
+        </div>
+        <div class="body-1-product-infor-right">
+            <div class="productRecommend">
+                <button class="recommend-btn">Recommend</button>
+            </div>
+            <hr>
+            <div id="productSize">
+                <div>Size</div>
+                <div class="size-options">
+                    <label class="size-option" for="sizeXS">
+                        <input type="radio" name="size" value="XS" id="sizeXS" class="size-input">
+                        <span>XS</span>
+                    </label>
+                    <label class="size-option" for="sizeS">
+                        <input type="radio" name="size" value="S" id="sizeS" class="size-input">
+                        <span>S</span>
+                    </label>
+                    <label class="size-option" for="sizeM">
+                        <input type="radio" name="size" value="M" id="sizeM" class="size-input">
+                        <span>M</span>
+                    </label>
+                    <label class="size-option" for="sizeL">
+                        <input type="radio" name="size" value="L" id="sizeL" class="size-input">
+                        <span>L</span>
+                    </label>
+                    <label class="size-option" for="sizeXL">
+                        <input type="radio" name="size" value="XL" id="sizeXL" class="size-input">
+                        <span>XL</span>
+                    </label>
+                    <label class="size-option" for="sizeXXL">
+                        <input type="radio" name="size" value="XXL" id="sizeXXL" class="size-input">
+                        <span>XXL</span>
+                    </label>
+                </div>
+                <input type="hidden" name="size" id="size" value="S">
+            </div>
+            <hr>
+            <div class="productPrice">
+                <p>Price</p>
+                <span id="productPrice"></span>
+            </div>
+            <hr>
+            <div class="quantity-container">
+                <label for="quantity">Quantity</label>
+                <div class="quantity-box">
+                    <button class="quantity-btn" id="decrease">-</button>
+                    <input type="number" id="quantity" value="1" min="1" readonly>
+                    <button class="quantity-btn" id="increase">+</button>
+                </div>
+            </div>
+            <div class="purchase-btn">
+                <button id="buyNow">Buy Now</button>
+                <button id="addToCart">Add to Cart</button>
+            </div>              
+        </div>
+    </div>
+
+    <div class="model hide">
+        
+        <div class="form hide ">
+            <div class="form_header">
+                <p>Personal Information Form</p>
+
+                <i class="fa-solid fa-xmark close_btn"></i>
+            </div>
+            <div class="form_body">
+                <div class="gender-selection">
+                    Gender
+                    <label>
+                        <input type="radio" name="gender" value="male">
+                        <span>Male</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female">
+                        <span>Female</span>
+                    </label>
+                </div>
+
+                <div class="weight-input">
+                    <label for="weight">Weight</label>
+                    <input type="number" id="weight" name="weight" placeholder="kg" min="1" max="300"
+                        step="1">
+                </div>
+
+                <div class="height-input">
+                    <label for="height">Height</label>
+                    <input type="number" id="height" name="height" placeholder="cm" min="1" max="300"
+                        step="1">
+                </div>
+
+                <div class="skintone">
+                    <div>Skin tone</div>
+                    <div class="skintone-options">
+                        <label class="skintone-option" for="skintoneWarm" data-hover-color="#dfac96">
+                            <input type="radio" name="skintone" value="Warm" id="skintoneWarm" class="skintone-input">
+                            <span>Warm</span>
+                        </label>
+                        <label class="skintone-option" for="skintoneNeutral" data-hover-color="#f1d9c7">
+                            <input type="radio" name="skintone" value="Neutral" id="skintoneNeutral" class="skintone-input">
+                            <span>Neutral</span>
+                        </label>
+                        <label class="skintone-option" for="skintoneCold" data-hover-color="#e2c6c0">
+                            <input type="radio" name="skintone" value="Cold" id="skintoneCold" class="skintone-input">
+                            <span>Cold</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="submit_btn">
+                    Submit
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="information hide ">
+            <div class="information_header">
+                Styles Suggestion
+            </div>
+            <div class="information_body">
+                <div class="in_body_1">
+                    <div ><img id="suggestion-img"></div>
+                    <span id="suggestion-name"></span>
+                </div>
+
+                <!-- size suggestion -->
+                <div class="in_body_2">
+                    <div class="suggestion-row">
+                        <Span id="suggestion-size">
+                            <span>
+                                <span class="label">Size</span>
+                                <span class="value" id="size-value"></span>
+                            </span>
+                            <span>
+                                <span class="label">Length</span>
+                                <span class="value" id="length-value"></span>
+                            </span>
+                            <span>
+                                <span class="label">Width</span>
+                                <span class="value" id="width-value"></span>
+                            </span>
+                        </Span>
+                    </div>
+
+                    <!-- Vòng 1, 2, 3 -->
+                    <div class="measurement-row">
+                        <span>
+                            <span class="label">Bust</span>
+                            <span class="value" id="bust-value"></span>
+                        </span>
+                        <span>
+                            <span class="label">Waist</span>
+                            <span class="value" id="waist-value"></span>
+                        </span>
+                        <span>
+                            <span class="label">Hip</span>
+                            <span class="value" id="hip-value"></span>
+                        </span>
+                    </div>
+
+                    <!-- Color suggestion -->
+                    <div class="suggestion-color">
+                        <span>
+                            <span class="label">Color</span>
+                            <span class="value" id="color-value"></span>
+                        </span>
+                    </div>
+                    <!-- Pattern suggestion -->
+                    <div class="suggestion-pattern"> <span>
+                            <span class="label">Pattern</span>
+                            <span class="value" id="pattern-value"></span>
+                        </span>
+                    </div>
+
+                    <!-- Annoucement -->
+                     <div class="announcement">
+                        <span>All measurements are in cm</span>
+                     </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+    <script src="/js/productSelected.js"></script>
+</html>
