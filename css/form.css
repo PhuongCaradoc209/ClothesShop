@@ -287,3 +287,76 @@ input[type="hidden"] {
 .hide{
     display: none;
 }
+
+
+.hide{
+    display: none;
+}
+
+@keyframes slideInTop {
+    from{
+        transform: translateY(-100%);
+        opacity: 0;
+        
+    }
+
+    current{
+        opacity: 1;
+    }
+    
+}
+
+
+.slideInTop{
+    animation: slideInTop 0.7s ease-in-out forwards;  
+}
+
+@keyframes slideInRight {
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+        
+    }
+
+    current{
+        opacity: 1;
+    }
+    
+}
+
+.slideInRight{
+    animation: slideInRight 0.7s ease-in-out forwards;  
+}
+
+@keyframes slideOutTop {
+    from{
+        transform: translateY(0);
+        opacity: 1;
+        
+    }
+
+    to{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    
+}
+
+.slideOutTop{
+    animation: slideOutTop 0.7s ease-in-out forwards;  
+}
+
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(+100%);
+    }
+    to {
+        transform: translateX(0); 
+    }
+}
+
+.slideLeft {
+    animation: slideLeft 0.7s ease-in-out forwards;
+}
+
