@@ -290,6 +290,10 @@ class ConcreteClothesFactory extends ClothesFactory {
     }
 }
 
+//BACK BUTTON
+document.getElementById('backButton').addEventListener('click', function() {
+    window.history.back(); 
+});
 
 const image = sessionStorage.getItem('productImage');
 const title = sessionStorage.getItem('productTitle');
@@ -332,15 +336,39 @@ document.getElementById('decrease').addEventListener('click', function() {
     }
 });  
 
+//SKIN TONE IN FORM
+const skintoneOptions = document.querySelectorAll('.skintone-option');
+const selectedSkintone = document.getElementById('selectedSkintone');
+
+skintoneOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        skintoneOptions.forEach(opt => {
+            opt.classList.remove('active');
+            opt.style.backgroundColor = ''; 
+        });        
+
+        this.classList.add('active');
+        
+        const hoverColor = this.getAttribute('data-hover-color');
+        this.style.backgroundColor = hoverColor;
+
+        const selectedValue = this.querySelector('input[type="radio"]').value;
+        
+        selectedSkintone.textContent = `Selected Skin Tone: ${selectedValue}`;
+        
+        document.getElementById('skintone').value = selectedValue;
+    });
+});
+
 
 const model = document.querySelector('.model');  // Model chứa form
 const closeBtn = document.querySelector('.form_header i');  // Nút đóng
 const submitBtn = document.querySelector('.submit_btn');  // Nút submit trong model
 const genderRadios = document.getElementsByName('gender');// Lấy tất cả các radio button có name là "gender"
-const skinToneRadios = document.getElementsByName('skintone');// Lấy tất cả các radio button có name là "skintone"
+const skinToneRadios = document.querySelectorAll('input[name="skintone"]');// Lấy tất cả các radio button có name là "skintone"
 const weightInput = document.getElementById('weight');
 const heightInput = document.getElementById('height');
-const recommend_btn = document.querySelector('.productRecommend');  
+const recommend_btn = document.querySelector('.recommend-btn');  
 const form = document.querySelector('.form');
 const information = document.querySelector('.information');
 
@@ -359,12 +387,19 @@ const suggestionHip= document.getElementById('hip-value');
 
 recommend_btn.addEventListener('click' , () => {
     model.classList.remove('hide');
+    information.classList.add('hide');
+    form.classList.remove('hide');
+    form.classList.add('slideInTop');
     suggestionImage.src = image;
     suggestionName.textContent = title;
 });
 
 submitBtn.addEventListener('click', () => {
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
+    information.classList.remove('hide');
+    form.classList.add("slideLeft");
+    information.classList.add('slideInRight');
+
     const weight = parseFloat(weightInput.value);  
     const height = parseFloat(heightInput.value) / 100; 
     const product = factory.createProduct(category);
@@ -386,8 +421,29 @@ submitBtn.addEventListener('click', () => {
 
 // Đóng model khi nhấp vào nút đóng (X)
 closeBtn.addEventListener('click', () => {
-    reset();
-    model.classList.add('hide');
+    if(information.classList.contains('slideInRight')){
+        form.classList.remove("slideLeft");
+        form.classList.add('slideOutTop');
+        information.classList.add('slideOutTop');
+
+     // Lắng nghe khi animation kết thúc
+        information.addEventListener('animationend', () => {
+            model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+            reset();
+            }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+    }
+    else{
+        form.classList.add("slideOutTop");
+
+        // Lắng nghe khi animation kết thúc
+        form.addEventListener('animationend', () => {
+            model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+            reset();
+            }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+        
+    }
+    
+
 });
 
 // Hàm lấy giá trị của radio button được chọn
@@ -422,6 +478,10 @@ function reset(){
     radio.checked = false; // Bỏ chọn radio
     });
 
+    skintoneOptions.forEach(opt => {
+        opt.classList.remove('active');
+        opt.style.backgroundColor = ''; 
+    });     
     suggestionSize.textContent = "";
     suggestionColor.textContent = "";
     suggestionImage.src ="";
@@ -433,6 +493,13 @@ function reset(){
     suggestionBust.textContent = "";
     suggestionWaist.textContent = "";
     suggestionHip.textContent = "";
+    
+    
+    form.classList.remove('slideInTop');
+    form.classList.remove('slideOutTop');
+    
+    information.classList.remove('slideInRight');
+    information.classList.remove('slideOutTop');
     
 }
 
@@ -448,5 +515,3 @@ function selectColor(skintone) {
             return "No color";  // Trường hợp giá trị không hợp lệ
     }
 }
-
-// 
