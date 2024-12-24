@@ -13,18 +13,17 @@
     align-items: center;
     justify-content: center;
     gap: 50px;
-    
 }
 
-.hide{
-    display: none;
-}
+
+
 
 .form{
+    position: relative;
     width: 400px;
     height: 400px;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,7 +118,7 @@
     width: 700px;
     height: 400px;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,3 +223,78 @@
     font-size: 14px; 
     color: #555; 
 }
+
+.hide{
+    display: none;
+}
+
+@keyframes slideInTop {
+    from{
+        transform: translateY(-100%);
+        opacity: 0;
+        
+    }
+
+    current{
+        opacity: 1;
+    }
+    
+}
+
+
+.slideInTop{
+    animation: slideInTop 0.7s ease-in-out forwards;  
+}
+
+@keyframes slideInRight {
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+        
+    }
+
+    current{
+        opacity: 1;
+    }
+    
+}
+
+.slideInRight{
+    animation: slideInRight 0.7s ease-in-out forwards;  
+}
+
+@keyframes slideOutTop {
+    from{
+        transform: translateY(0);
+        opacity: 1;
+        
+    }
+
+    to{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    
+}
+
+.slideOutTop{
+    animation: slideOutTop 0.7s ease-in-out forwards;  
+}
+
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(+100%);
+    }
+    to {
+        transform: translateX(0); 
+    }
+}
+
+.slideLeft {
+    animation: slideLeft 0.7s ease-in-out forwards;
+}
+
+
+
+

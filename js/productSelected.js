@@ -221,7 +221,7 @@ const genderRadios = document.getElementsByName('gender');// Lấy tất cả c�
 const skinToneRadios = document.getElementsByName('skintone');// Lấy tất cả các radio button có name là "skintone"
 const weightInput = document.getElementById('weight');
 const heightInput = document.getElementById('height');
-const recommend_btn = document.querySelector('.productRecommend');  
+const recommend_btn = document.querySelector('.recommend-btn');  
 const form = document.querySelector('.form');
 const information = document.querySelector('.information');
 
@@ -240,12 +240,19 @@ const suggestionHip= document.getElementById('hip-value');
 
 recommend_btn.addEventListener('click' , () => {
     model.classList.remove('hide');
+    information.classList.add('hide');
+    form.classList.remove('hide');
+    form.classList.add('slideInTop');
     suggestionImage.src = image;
     suggestionName.textContent = title;
 });
 
 submitBtn.addEventListener('click', () => {
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
+    information.classList.remove('hide');
+    form.classList.add("slideLeft");
+    information.classList.add('slideInRight');
+
     const weight = parseFloat(weightInput.value);  
     const height = parseFloat(heightInput.value) / 100; 
     const product = factory.createProduct(category);
@@ -267,8 +274,29 @@ submitBtn.addEventListener('click', () => {
 
 // Đóng model khi nhấp vào nút đóng (X)
 closeBtn.addEventListener('click', () => {
-    reset();
-    model.classList.add('hide');
+    if(information.classList.contains('slideInRight')){
+        form.classList.remove("slideLeft");
+        form.classList.add('slideOutTop');
+        information.classList.add('slideOutTop');
+
+     // Lắng nghe khi animation kết thúc
+        information.addEventListener('animationend', () => {
+            model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+            reset();
+            }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+    }
+    else{
+        form.classList.add("slideOutTop");
+
+        // Lắng nghe khi animation kết thúc
+        form.addEventListener('animationend', () => {
+            model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+            reset();
+            }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+        
+    }
+    
+
 });
 
 // Hàm lấy giá trị của radio button được chọn
@@ -314,6 +342,13 @@ function reset(){
     suggestionBust.textContent = "";
     suggestionWaist.textContent = "";
     suggestionHip.textContent = "";
+    
+    
+    form.classList.remove('slideInTop');
+    form.classList.remove('slideOutTop');
+    
+    information.classList.remove('slideInRight');
+    information.classList.remove('slideOutTop');
     
 }
 
