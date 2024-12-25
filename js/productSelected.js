@@ -393,6 +393,25 @@ recommend_btn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
+    if(getSelectedGender() === null){
+        alert("Gender not selected!");
+        return;
+    }
+    else if(weightInput.value === ""){
+        alert("Weight not inputed!");
+        return;
+    }
+
+    else if(heightInput.value === ""){
+        alert("Height not selected!");
+        return;
+    }
+
+    else if(getSelectedSkinTone() === null){
+        alert("Skin tone not selected!");
+        return;
+    }
+
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
     information.classList.remove('hide');
     form.classList.add("slideLeft");
