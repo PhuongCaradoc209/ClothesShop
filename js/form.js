@@ -8,7 +8,7 @@ const products = [
         },
         {
             image: "../src/image/product/jacket.png",
-            category: "Jackets",
+            category: "Jacket",
             title: "Gray Hoodie with Logo",
             price: "$40"
         },

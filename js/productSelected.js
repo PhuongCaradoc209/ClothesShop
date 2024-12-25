@@ -1,5 +1,4 @@
 
-
 class Statistic {
     constructor(size,length, width, bust, waist, hip) {
         this.size = size;
@@ -27,25 +26,11 @@ class Product {
 
     setupStatisticMale(){}
     setupStatisticFemale(){}
-    findStatistic(){}
-    findSize(){}   
-
-}
-
-
-
-// Concrete Products
-class Shirt extends Product {
-    constructor(name) {
-        super(name);  // Gọi constructor của lớp cha (Product)
-        this.setupStatisticMale();
-        this.setupStatisticFemale();
-    }    
 
     findSize(gender, height, weight) {
         const bmi = weight / (height * height); // Tính BMI
         let selectedSize = null; // Kích thước phù hợp
-    
+
         // Duyệt qua Map size bằng for...of
         for (const [key, value] of this.size) {
             if (bmi > value) {
@@ -65,6 +50,29 @@ class Shirt extends Product {
         return selectedSize || "Size not found";
     }
 
+    findStatistic(gender, size) {
+        let result = null;
+
+        // Kiểm tra giới tính và tìm kiếm trong mảng phù hợp
+        if (gender === "male") {
+            result = this.statisticMale.find(stat => stat.size === size);
+        } else if (gender === "female") {
+            result = this.statisticFemale.find(stat => stat.size === size);
+        }
+
+        // Trả về đối tượng Statistic nếu tìm thấy, ngược lại trả về thông báo
+        return result || "Statistic not found";
+    }
+}
+
+// Concrete Products
+class Shirt extends Product {
+    constructor(name) {
+        super(name);  // Gọi constructor của lớp cha (Product)
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
+    }    
+
     setupStatisticMale(){
         this.statisticMale.push(new Statistic("XS",69,40.5,44,42,"N/A"));
         this.statisticMale.push(new Statistic("S",69,42,46,44,"N/A"));
@@ -83,58 +91,166 @@ class Shirt extends Product {
         this.statisticFemale.push(new Statistic("XXL",76,46.5,65.5,63,"N/A"));
     } 
 
-    findStatistic(gender, size){
-        let result = null;
-
-        // Kiểm tra giới tính và tìm kiếm trong mảng phù hợp
-        if (gender === "male") {
-            result = this.statisticMale.find(stat => stat.size === size);
-        } else if (gender === "female") {
-            result = this.statisticFemale.find(stat => stat.size === size);
-        }
-
-
-        // Trả về đối tượng Statistic nếu tìm thấy, ngược lại trả về thông báo
-        return result || "Statistic not found";
-    }
-    
-
     getDetails() {
         return "This is a shirt";
     }
 }
 
 class Jacket extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticMale() {
+        this.statisticMale.push(new Statistic("XS", 71, 42.5, 46, 44, "N/A"));
+        this.statisticMale.push(new Statistic("S", 72, 44, 48, 46, "N/A"));
+        this.statisticMale.push(new Statistic("M", 73, 45.5, 50, 48, "N/A"));
+        this.statisticMale.push(new Statistic("L", 75, 47, 52, 50, "N/A"));
+        this.statisticMale.push(new Statistic("XL", 76, 48.5, 54, 52, "N/A"));
+        this.statisticMale.push(new Statistic("XXL", 78, 50, 56, 54, "N/A"));
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 69, 43, 55.5, 53, "N/A"));
+        this.statisticFemale.push(new Statistic("S", 71, 44, 57.5, 55, "N/A"));
+        this.statisticFemale.push(new Statistic("M", 73, 45, 59.5, 57, "N/A"));
+        this.statisticFemale.push(new Statistic("L", 75, 46, 62.5, 60, "N/A"));
+        this.statisticFemale.push(new Statistic("XL", 77, 47.5, 65.5, 63, "N/A"));
+        this.statisticFemale.push(new Statistic("XXL", 78, 48.5, 68.5, 66, "N/A"));
+    }
+
     getDetails() {
-        return "These are pants";
+        return "This is a jacket";
     }
 }
 
 class Skirt extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 72, "N/A", "N/A", 63, 123));
+        this.statisticFemale.push(new Statistic("S", 72, "N/A", "N/A", 68, 128));
+        this.statisticFemale.push(new Statistic("M", 72, "N/A", "N/A", 73, 137));
+        this.statisticFemale.push(new Statistic("L", 74, "N/A", "N/A", 76, 145)); 
+        this.statisticFemale.push(new Statistic("XL", 74, "N/A", "N/A", 81, 154));
+        this.statisticFemale.push(new Statistic("XXL", 74, "N/A", "N/A", 86, 162));
+    }
+
     getDetails() {
         return "This is a skirt";
     }
 }
 
 class TShirt extends Product {
-    getDetails() {
-        return "This is a T-shirt";
-    }
+        constructor(name) {
+            super(name);
+            this.setupStatisticMale();
+            this.setupStatisticFemale();
+        }
+
+        setupStatisticMale() {
+            this.statisticMale.push(new Statistic("XS", 62, 43, 41, 39, "N/A"));
+            this.statisticMale.push(new Statistic("S", 64, 46, 42.5, 40, "N/A"));
+            this.statisticMale.push(new Statistic("M", 67, 49, 44.5, 42, "N/A"));
+            this.statisticMale.push(new Statistic("L", 70, 52, 46.5, 44, "N/A"));
+            this.statisticMale.push(new Statistic("XL", 73, 56, 48.5, 46, "N/A"));
+            this.statisticMale.push(new Statistic("XXL", 75, 60, 49.5, 48, "N/A"));
+        } 
+
+        setupStatisticFemale() {
+            this.statisticFemale.push(new Statistic("XS", 57.5, 40, 42.5, 40, "N/A"));
+            this.statisticFemale.push(new Statistic("S", 59.5, 41.5, 44, 41, "N/A"));
+            this.statisticFemale.push(new Statistic("M", 61.5, 43, 46, 43, "N/A"));
+            this.statisticFemale.push(new Statistic("L", 63.5, 44.5, 48, 45, "N/A"));
+            this.statisticFemale.push(new Statistic("XL", 66, 46, 50, 47, "N/A"));
+            this.statisticFemale.push(new Statistic("XXL", 68, 47.5, 52, 48, "N/A"));
+        }
+
+        getDetails() {
+            return "This is a T-shirt";
+        }
 }
 
 class Dress extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 87, "N/A", 79, 61, 87));
+        this.statisticFemale.push(new Statistic("S", 89, "N/A", 84, 66, 91));
+        this.statisticFemale.push(new Statistic("M", 91, "N/A", 89, 71, 96));
+        this.statisticFemale.push(new Statistic("L", 93, "N/A", 94, 76, 102));
+        this.statisticFemale.push(new Statistic("XL", 95, "N/A", 99, 81, 108));
+        this.statisticFemale.push(new Statistic("XXL", 97, "N/A", 104, 86, 114));
+    }    
+
     getDetails() {
         return "This is a dress";
     }
 }
 
 class Shorts extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticMale() {
+        this.statisticMale.push(new Statistic("XS", 38, "N/A", "N/A", 70, 97));
+        this.statisticMale.push(new Statistic("S", 40, "N/A", "N/A", 76, 102));
+        this.statisticMale.push(new Statistic("M", 42, "N/A", "N/A", 82, 109));
+        this.statisticMale.push(new Statistic("L", 44, "N/A", "N/A", 88, 115));
+        this.statisticMale.push(new Statistic("XL", 46, "N/A", "N/A", 96, 122.5));
+        this.statisticMale.push(new Statistic("XXL", 48, "N/A", "N/A", 102, 127.5));
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 34, "N/A", "N/A", 57, 93));
+        this.statisticFemale.push(new Statistic("S", 35, "N/A", "N/A", 60, 97));
+        this.statisticFemale.push(new Statistic("M", 36, "N/A", "N/A", 63, 101));
+        this.statisticFemale.push(new Statistic("L", 37, "N/A", "N/A", 69, 107));
+        this.statisticFemale.push(new Statistic("XL", 38, "N/A", "N/A", 75, 113));
+        this.statisticFemale.push(new Statistic("XXL", 39, "N/A", "N/A", 81, 119));    
+    }
+
     getDetails() {
         return "These are shorts";
     }
 }
 
 class Trousers extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticMale() {
+        this.statisticMale.push(new Statistic("XS", 70, "N/A", "N/A", 70, 99));
+        this.statisticMale.push(new Statistic("S", 72, "N/A", "N/A", 76, 105));
+        this.statisticMale.push(new Statistic("M", 74, "N/A", "N/A", 82, 111));
+        this.statisticMale.push(new Statistic("L", 76, "N/A", "N/A", 88, 117));
+        this.statisticMale.push(new Statistic("XL", 76, "N/A", "N/A", 96, 124.5));
+        this.statisticMale.push(new Statistic("XXL", 76, "N/A", "N/A", 102, 129.5));
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 69, "N/A", "N/A", 59, 95));
+        this.statisticFemale.push(new Statistic("S", 71, "N/A", "N/A", 62, 99));
+        this.statisticFemale.push(new Statistic("M", 71, "N/A", "N/A", 68, 103));
+        this.statisticFemale.push(new Statistic("L", 71, "N/A", "N/A", 74, 109));
+        this.statisticFemale.push(new Statistic("XL", 71, "N/A", "N/A", 80, 115));
+        this.statisticFemale.push(new Statistic("XXL", 71, "N/A", "N/A", 86, 121));
+    }
+
     getDetails() {
         return "These are trousers";
     }
@@ -170,6 +286,7 @@ class ConcreteClothesFactory extends ClothesFactory {
         }
     }
 }
+
 
 //BACK BUTTON
 document.getElementById('backButton').addEventListener('click', function() {
