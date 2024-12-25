@@ -362,7 +362,7 @@ skintoneOptions.forEach(option => {
 const model = document.querySelector('.model');  // Model chứa form
 const closeBtn = document.querySelector('.form_header i');  // Nút đóng
 const submitBtn = document.querySelector('.submit_btn');  // Nút submit trong model
-const genderRadios = document.getElementsByName('gender');// Lấy tất cả các radio button có name là "gender"
+const genderOptions = document.getElementsByName('gender');// Lấy tất cả các radio button có name là "gender"
 const skinToneRadios = document.querySelectorAll('input[name="skintone"]');// Lấy tất cả các radio button có name là "skintone"
 const weightInput = document.getElementById('weight');
 const heightInput = document.getElementById('height');
@@ -438,10 +438,7 @@ closeBtn.addEventListener('click', () => {
             model.classList.add('hide'); // Ẩn sau khi animation kết thúc
             reset();
         }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
-
     }
-
-
 });
 
 // Hàm lấy giá trị của radio button được chọn
@@ -456,7 +453,13 @@ function getSelectedRadioValue(radios) {
 
 // Cập nhật lại các hàm lấy giá trị
 function getSelectedGender() {
-    return getSelectedRadioValue(genderRadios);
+    // Dropdown menu
+    const dropdown = document.getElementById('gender');
+    if (dropdown) {
+        return dropdown.value; 
+    }
+
+    return null;
 }
 
 function getSelectedSkinTone() {
@@ -467,9 +470,11 @@ function getSelectedSkinTone() {
 function reset() {
 
     //Reset chon gender
-    genderRadios.forEach(radio => {
-        radio.checked = false; // Bỏ chọn radio
-    });
+    // genderRadios.forEach(radio => {
+    //     radio.checked = false; // Bỏ chọn radio
+    // });
+
+    genderOptions.value = "";
 
     //Reset chon skintone
     skinToneRadios.forEach(radio => {
