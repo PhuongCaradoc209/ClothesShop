@@ -42,8 +42,6 @@ class Shirt extends Product {
         this.setupStatisticFemale();
     }    
 
-    findTotal  = 0;
-
     findSize(gender, height, weight) {
         const bmi = weight / (height * height); // Tính BMI
         let selectedSize = null; // Kích thước phù hợp
