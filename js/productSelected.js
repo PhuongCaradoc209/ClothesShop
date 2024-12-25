@@ -104,21 +104,21 @@ class Jacket extends Product {
     }
 
     setupStatisticMale() {
-        this.statisticMale.push(new Statistic("XS", 71, 42.5, 80, 70, "N/A"));
-        this.statisticMale.push(new Statistic("S", 72, 44, 83, 74, "N/A"));
-        this.statisticMale.push(new Statistic("M", 73, 45.5, 87, 78, "N/A"));
-        this.statisticMale.push(new Statistic("L", 75, 47, 90, 83, "N/A"));
-        this.statisticMale.push(new Statistic("XL", 76, 48.5, 94, 87, "N/A"));
-        this.statisticMale.push(new Statistic("XXL", 78, 50, 98, 91, "N/A"));
+        this.statisticMale.push(new Statistic("XS", 71, 42.5, 85, 75, "N/A"));
+        this.statisticMale.push(new Statistic("S", 72, 44, 88, 79, "N/A"));
+        this.statisticMale.push(new Statistic("M", 73, 45.5, 92, 83, "N/A"));
+        this.statisticMale.push(new Statistic("L", 75, 47, 95, 88, "N/A"));
+        this.statisticMale.push(new Statistic("XL", 76, 48.5, 100, 92, "N/A"));
+        this.statisticMale.push(new Statistic("XXL", 78, 50, 103, 97, "N/A"));
     }
 
     setupStatisticFemale() {
-        this.statisticFemale.push(new Statistic("XS", 69, 43, 73, 63, "N/A"));
-        this.statisticFemale.push(new Statistic("S", 71, 44, 77, 68, "N/A"));
-        this.statisticFemale.push(new Statistic("M", 73, 45, 80, 73, "N/A"));
-        this.statisticFemale.push(new Statistic("L", 75, 46, 84, 77, "N/A"));
-        this.statisticFemale.push(new Statistic("XL", 77, 47.5, 88, 81, "N/A"));
-        this.statisticFemale.push(new Statistic("XXL", 78, 48.5, 93, 86, "N/A"));
+        this.statisticFemale.push(new Statistic("XS", 69, 43, 78, 68, "N/A"));
+        this.statisticFemale.push(new Statistic("S", 71, 44, 82, 73, "N/A"));
+        this.statisticFemale.push(new Statistic("M", 73, 45, 85, 77, "N/A"));
+        this.statisticFemale.push(new Statistic("L", 75, 46, 89, 81, "N/A"));
+        this.statisticFemale.push(new Statistic("XL", 77, 47.5, 93, 86, "N/A"));
+        this.statisticFemale.push(new Statistic("XXL", 78, 48.5, 98, 81, "N/A"));
     }
 
     getDetails() {
