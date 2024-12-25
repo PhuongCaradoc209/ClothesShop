@@ -243,12 +243,12 @@ class Trousers extends Product {
     }
 
     setupStatisticFemale() {
-        this.statisticMale.push(new Statistic("XS", 69, "N/A", "N/A", 59, 95));
-        this.statisticMale.push(new Statistic("S", 71, "N/A", "N/A", 62, 99));
-        this.statisticMale.push(new Statistic("M", 71, "N/A", "N/A", 68, 103));
-        this.statisticMale.push(new Statistic("L", 71, "N/A", "N/A", 74, 109));
-        this.statisticMale.push(new Statistic("XL", 71, "N/A", "N/A", 80, 115));
-        this.statisticMale.push(new Statistic("XXL", 71, "N/A", "N/A", 86, 121));
+        this.statisticFemale.push(new Statistic("XS", 69, "N/A", "N/A", 59, 95));
+        this.statisticFemale.push(new Statistic("S", 71, "N/A", "N/A", 62, 99));
+        this.statisticFemale.push(new Statistic("M", 71, "N/A", "N/A", 68, 103));
+        this.statisticFemale.push(new Statistic("L", 71, "N/A", "N/A", 74, 109));
+        this.statisticFemale.push(new Statistic("XL", 71, "N/A", "N/A", 80, 115));
+        this.statisticFemale.push(new Statistic("XXL", 71, "N/A", "N/A", 86, 121));
     }
 
     getDetails() {
