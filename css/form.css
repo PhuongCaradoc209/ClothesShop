@@ -69,6 +69,7 @@
     font-size: 15px;
     text-transform: uppercase;
     border-bottom: 1px solid #4f4f4fd4;
+    letter-spacing: 1px;
 }
 
 .form_body {
@@ -85,10 +86,33 @@
 .height-input {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 50px;
     font-size: 15px;
     text-transform: uppercase;
 }
+
+.gender-selection select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Castoro", serif;
+}
+
+.gender-selection select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.gender-selection select:hover {
+    background-color: #f1f1f1;
+}
+
 
 .weight-input,.height-input{
     align-items: center;
@@ -120,6 +144,7 @@
     display: flex;  
     flex-wrap: wrap;
     gap: 40px;       
+    font-family: "Castoro", serif;
 }
 
 .skintone-option {
@@ -154,6 +179,7 @@
 }
 
 .skintone-option.active {
+    font-weight: bold;
 }
 
 .skintone-option.active:hover {
@@ -176,8 +202,7 @@ input[type="hidden"] {
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng khi hover */
     text-transform: uppercase; /* Chuyển đổi chữ hoa */
-    font-family: "DM Serif Text", serif;     
-
+    font-family: "Castoro", serif;
 }
 
 .submit_btn:hover {
@@ -210,6 +235,7 @@ input[type="hidden"] {
     flex-direction: column;
     align-items: center;
     overflow: auto;
+    font-family: "Castoro", serif;
 }
 
 .information_header{
@@ -222,7 +248,8 @@ input[type="hidden"] {
     background: var(--color-button);
     color: white;
     font-size: 20px;
-    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .information_body{
@@ -252,7 +279,7 @@ input[type="hidden"] {
     height: auto; 
     object-fit: cover; 
     border-radius: 8px; 
-    background-color: #cecece;
+    background-color: #d0d0d0;
     filter: drop-shadow(0 0 37px rgba(0, 0, 0, 0.226)); 
 }
 
