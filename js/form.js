@@ -68,7 +68,6 @@ products.forEach(product => {
             <div class="card-price">${product.price}</div>
         </div>
     `;
-
     productList.appendChild(card);
 });
 
