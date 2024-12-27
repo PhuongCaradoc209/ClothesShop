@@ -27,8 +27,7 @@ class Product {
     setupStatisticMale() { }
     setupStatisticFemale() { }
 
-    findSize(gender, height, weight) {
-        const bmi = weight / (height * height); // Tính BMI
+    findSize(gender, bmi) {
         let selectedSize = null; // Kích thước phù hợp
 
         // Duyệt qua Map size bằng for...of
@@ -74,7 +73,7 @@ class Shirt extends Product {
     }
 
     setupStatisticMale() {
-        this.statisticMale.push(new Statistic("XS", 69, 40.5,80, 70, "N/A"));
+        this.statisticMale.push(new Statistic("XS", 69, 40.5, 80, 70, "N/A"));
         this.statisticMale.push(new Statistic("S", 69, 42, 83, 74, "N/A"));
         this.statisticMale.push(new Statistic("M", 69, 43.5, 87, 78, "N/A"));
         this.statisticMale.push(new Statistic("L", 71, 45, 90, 83, "N/A"));
@@ -419,8 +418,11 @@ submitBtn.addEventListener('click', () => {
 
     const weight = parseFloat(weightInput.value);
     const height = parseFloat(heightInput.value) / 100;
+    const bmi = calculateBMI(height, weight);
     const product = factory.createProduct(category);
-    const productSize = product.findSize(getSelectedGender(), height, weight);
+    const productSize = product.findSize(getSelectedGender(), bmi);
+    suggestionPattern.textContent = selectPattern(getSelectedGender(), height, bmi);
+
 
     // Lấy kích thước dựa trên thông tin giới tính, chiều cao và cân nặng
     suggestionSize.textContent = productSize;
@@ -475,7 +477,7 @@ function getSelectedGender() {
     // Dropdown menu
     const dropdown = document.getElementById('gender');
     if (dropdown) {
-        return dropdown.value; 
+        return dropdown.value;
     }
 
     return null;
@@ -506,6 +508,7 @@ function reset() {
     });
     suggestionSize.textContent = "";
     suggestionColor.textContent = "";
+    suggestionPattern.textContent = "";
     suggestionImage.src = "";
     suggestionName.textContent = "";
     weightInput.value = "";
@@ -525,6 +528,10 @@ function reset() {
 
 }
 
+function calculateBMI(height, weight) {
+    return weight / (height * height);
+}
+
 function selectColor(skintone) {
     switch (skintone) {
         case 'Warm':
@@ -537,3 +544,18 @@ function selectColor(skintone) {
             return "No color";  // Trường hợp giá trị không hợp lệ
     }
 }
+
+function selectPattern(gender, height, bmi) {
+    if ((gender === "male" && height >= 175) || (gender == "female" && height >= 165)) {
+        if (bmi <= 24.9) // tall and slim
+            return "Large patterns such as horizontal stripes, large polka dots or floral prints";
+        else // tall and fat
+            return "Small and sleek patterns such as fine polka dots, vertical stripes, or subtle floral prints";
+    }
+    else if ((gender === "male" && height < 175) || (gender == "female" && height < 165)) {
+        if (bmi <= 24.9) // short and slim
+            return "Small and sleek patterns such as fine polka dots, vertical stripes, or subtle floral prints";
+        else // short and fat
+            return "Large patterns such as horizontal stripes, large polka dots or floral prints";            
+    }
+} 
