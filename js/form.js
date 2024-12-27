@@ -67,10 +67,10 @@ products.forEach(product => {
     card.classList.add("card");
 
     card.innerHTML = `
-        <div class="card-product">
+        <div class="card-product" title="${product.title}">
             <img src="${product.image}" alt="${product.title}">
         </div>
-        <div class="card-content">
+        <div class="card-content" title="${product.title}">
             <div class="card-category">${product.category}</div>
             <div class="card-title">${product.title}</div>
             <div class="card-price">${product.price}</div>

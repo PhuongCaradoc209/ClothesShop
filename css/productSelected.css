@@ -39,6 +39,7 @@
     aspect-ratio: 1/1;
     width: 33vw; 
     height: auto;
+    overflow: hidden;
 }
 
 .body-1-product-image img {
@@ -46,6 +47,7 @@
     width: auto; 
     height: auto;
     filter: drop-shadow(0 0 37px rgba(0, 0, 0, 0.226)); 
+    object-fit: cover;
 }
 
 .body-1-product-infor-left {

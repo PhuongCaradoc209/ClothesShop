@@ -273,6 +273,11 @@ input[type="hidden"] {
     font-weight: 550;
 }
 
+.in_body_1 span{
+    font-family: "DM Serif Text", serif;     
+    padding: 0px 40px;
+}
+
 .in_body_1 img {
     aspect-ratio: 1/1;
     width: 250px; 
