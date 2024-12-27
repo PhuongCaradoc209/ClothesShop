@@ -8,6 +8,13 @@ const products = [
             price: "$34"
         },
         {
+            image: "../src/image/product/Dico_Mate_Tshirt.png",
+            category: "T-shirt",
+            title: "Dico Mate T-shirt",
+            description: "This comfy 100% cotton t-shirt features vibrant graphics with unique illustrations and \"DIRTYCOINS\" text along with its Japanese translation. Available in various colors and a relaxed fit, it's perfect for a bold casual look.",
+            price: "$18"
+        },
+        {
             image: "../src/image/product/Jacket.png",
             category: "Jacket",
             title: "Beige Zip-Up Jacket with Dual Chest Pockets",
@@ -19,6 +26,13 @@ const products = [
             category: "Trousers",
             title: "Slim Fit Chino Trousers",
             description: "Stylish slim fit chino trousers made from durable, breathable fabric with practical side pockets. Perfect for any occasion and easy to mix and match.",
+            price: "$27"
+        },
+        {
+            image: "../src/image/product/Metal_Label_Wide_Trouser_Pants.png",
+            category: "Trousers",
+            title: "Metal Label Wide Trouser Pants",
+            description: "These stylish beige trousers feature a button and zipper closure, belt loops, and side pockets. Crafted from lightweight fabric with a straight-leg cut, they also showcase a small embroidered logo near the right pocket. Available in various sizes and colors for a comfortable and sleek look.",
             price: "$45"
         },
         {
@@ -61,8 +75,7 @@ const products = [
 // Lấy thẻ chứa danh sách sản phẩm
 const productList = document.getElementById("productList");
 
-// Tạo các card sản phẩm
-products.forEach(product => {
+products.forEach((product, index) => {
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -76,32 +89,30 @@ products.forEach(product => {
             <div class="card-price">${product.price}</div>
         </div>
     `;
+
+    // Gắn chỉ số (index) làm thuộc tính dữ liệu cho card
+    card.dataset.index = index;
+
     productList.appendChild(card);
 });
 
 const productCards = document.querySelectorAll('.card');  // Các thẻ sản phẩm
 
-
-
-
-
-
-let name = '';
-
 // Mở model khi nhấp vào sản phẩm
 productCards.forEach((card) => {
     card.addEventListener('click', () => {
-        // Lấy thông tin từ card
-        const image = card.querySelector('img').src;
-        const title = card.querySelector('.card-title').textContent;
-        const category = card.querySelector('.card-category').textContent;
-        const price = card.querySelector('.card-price').textContent;
+        // Lấy chỉ số của sản phẩm từ thuộc tính data-index
+        const productIndex = card.dataset.index;
 
-        // Lưu thông tin vào sessionStorage (hoặc localStorage)
-        sessionStorage.setItem('productImage', image);
-        sessionStorage.setItem('productTitle', title);
-        sessionStorage.setItem('productCategory', category);
-        sessionStorage.setItem('productPrice', price);
+        // Dùng chỉ số để truy xuất thông tin sản phẩm
+        const selectedProduct = products[productIndex];
+
+        // Lưu thông tin vào sessionStorage
+        sessionStorage.setItem('productImage', selectedProduct.image);
+        sessionStorage.setItem('productTitle', selectedProduct.title);
+        sessionStorage.setItem('productCategory', selectedProduct.category);
+        sessionStorage.setItem('productPrice', selectedProduct.price);
+        sessionStorage.setItem('productDescription', selectedProduct.description);
 
         // Chuyển hướng đến trang productSelected.html
         window.location.href = "../html/productSelected.html"; 

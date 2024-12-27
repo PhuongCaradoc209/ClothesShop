@@ -328,12 +328,14 @@ const image = sessionStorage.getItem('productImage');
 const title = sessionStorage.getItem('productTitle');
 const category = sessionStorage.getItem('productCategory');
 const price = sessionStorage.getItem('productPrice');
+const description = sessionStorage.getItem('productDescription');
 
 //DISPLAY PRODUCT INFORMATION
 document.getElementById('productImage').src = image;
 document.getElementById('productCategory').textContent = category;
 document.getElementById('productTitle').textContent = title;
 document.getElementById('productPrice').textContent = price;
+document.getElementById('productDescription').textContent = description;
 
 //DISPLAY PRODUCT SIZE
 const sizeOptions = document.querySelectorAll('.size-option');
