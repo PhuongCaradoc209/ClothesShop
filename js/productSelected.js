@@ -450,6 +450,8 @@ submitBtn.addEventListener('click', () => {
     form.classList.add("slideLeft");
     information.classList.add('slideInRight');
 
+    handleResize();
+
     const weight = parseFloat(weightInput.value);
     const height = parseFloat(heightInput.value) / 100;
     const bmi = calculateBMI(height, weight);
@@ -495,6 +497,59 @@ closeBtn.addEventListener('click', () => {
         }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
     }
 });
+
+handleResize();
+window.addEventListener('resize', handleResize);
+
+function handleResize() {
+    if(window.innerWidth <= 768) {
+        form.classList.add('hide');
+    }else{
+        if(form.classList.contains('hide')) {
+            form.classList.remove('hide');
+        }
+    }
+
+    addCloseButton();
+}
+
+function addCloseButton() {
+    const informationHeader = document.querySelector('.information_header');
+    if (!informationHeader) return;
+
+    // Kiểm tra nếu chưa có nút đóng và kích thước cửa sổ nhỏ hơn hoặc bằng 768px
+    if (window.innerWidth <= 768 && !informationHeader.querySelector('.close_btn')) {
+        const closeButton = document.createElement('i');
+        closeButton.className = 'fa-solid fa-xmark close_btn';
+        closeButton.addEventListener('click', () => {
+            if (information.classList.contains('slideInRight')) {
+                form.classList.remove("slideLeft");
+                form.classList.add('slideOutTop');
+                information.classList.add('slideOutTop');
+        
+                // Lắng nghe khi animation kết thúc
+                information.addEventListener('animationend', () => {
+                    model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+                    reset();
+                }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+            }
+            else {
+                form.classList.add("slideOutTop");
+        
+                // Lắng nghe khi animation kết thúc
+                form.addEventListener('animationend', () => {
+                    model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+                    reset();
+                }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+            }
+        });
+        informationHeader.appendChild(closeButton); // Thêm nút vào tiêu đề
+    } else if (window.innerWidth > 768) {
+        // Chỉ xóa nút đóng bên trong .information_header
+        const closeButton = informationHeader.querySelector('.close_btn');
+        if (closeButton) closeButton.remove();
+    }
+}
 
 // Hàm lấy giá trị của radio button được chọn
 function getSelectedRadioValue(radios) {

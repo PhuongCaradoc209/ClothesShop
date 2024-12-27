@@ -1,43 +1,42 @@
 .body-1 {
     margin-top: 130px;
+    margin-bottom: 40px;
+    padding: 20px;
+    padding-top: 80px;
     width: 100%;
     min-height: 600px;
     display: flex;
-
     justify-content: space-between;
-    align-items: center; 
-    position: relative; 
+    align-items: flex-start; 
+    position: relative;
     border-radius: 20px;
     box-shadow: 0 0 37px 20px rgba(0, 0, 0, 0.1);
     font-family: "Castoro", serif;
+    flex-wrap: wrap; 
+    gap: 20px;
 }
 
 .body-1-product-infor-left,
 .body-1-product-infor-right {
-    flex: 1;
-    
+    flex: 1 1 calc(33% - 40px); 
     display: flex;
     flex-direction: column;
-
-    height: 400px;
-    max-width: 30vw;
-    min-width: 0; 
+    height: auto; 
+    max-width: 100%; 
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .body-1-product-image {
-    position: absolute; 
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);  
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    background-color: #dedede;
+    background-color: #f4f4f4;
     padding: 30px;
-
     aspect-ratio: 1/1;
-    width: 33vw; 
+    width: 33%;
+    max-width: 100%; 
     height: auto;
     overflow: hidden;
 }
@@ -52,7 +51,7 @@
 
 .body-1-product-infor-left {
     padding: 0px 40px; 
-    height: 500px;
+    height: auto;
 }
 
 .body-1-product-infor-left div {
@@ -106,15 +105,24 @@
     font-size: 36px;
     font-weight: bold;
 }
-
-.body-1-product-infor-left div:nth-child(4){
+.body-1-product-infor-left div:nth-child(4) {
     margin-top: 30px;
     font-size: 15px;
     line-height: 1.7;
+    height: 200px;
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* For Webkit-based browsers like Chrome, Edge, and Safari */
+.body-1-product-infor-left div:nth-child(4)::-webkit-scrollbar {
+    display: none;
 }
 
 .body-1-product-infor-right {
     padding: 0px 40px;
+    padding-top: 28px
 }
 
 hr {
@@ -214,6 +222,7 @@ input[type="hidden"] {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    gap: 20px;
 }
 
 .quantity-container label{
@@ -297,4 +306,27 @@ input[type="hidden"] {
 #buyNow:active,
 #addToCart:active {
     transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .body-1 {
+        justify-content: center; 
+        padding-top: 20px;
+    }
+
+    .body-1-product-infor-left,
+    .body-1-product-infor-right,
+    .body-1-product-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .body-1-product-infor-left {
+        height: 400px;
+    }
+
+    .body-1-product-image {
+        margin: 20px 0;
+    }
 }
