@@ -24,9 +24,16 @@ const products = [
         {
             image: "../src/image/product/Trousers.png",
             category: "Trousers",
-            title: "Slim Fit Chino Trousers",
-            description: "Stylish slim fit chino trousers made from durable, breathable fabric with practical side pockets. Perfect for any occasion and easy to mix and match.",
-            price: "$27"
+            title: "High-Waisted Straight-Leg Trousers",
+            description: "These chic, high-waisted black pants feature a wide-leg design, smooth fabric, and a crease running down the center for a tailored look. The pants come with belt loops and a single button closure, making them versatile for both formal and casual occasions. Available in multiple sizes.",
+            price: "$40"
+        },
+        {
+            image: "../src/image/product/Red_ALine_Skirt.png",
+            category: "Skirt",
+            title: "Red A-Line Skirt",
+            description: "This elegant high-waisted, A-line skirt features a fitted waistband with three decorative buttons on each side and pleats that create a flared, voluminous look. Made from quality fabric, its rich red color and classic design make it a stylish and versatile addition to any wardrobe.",
+            price: "$35"
         },
         {
             image: "../src/image/product/Metal_Label_Wide_Trouser_Pants.png",
@@ -69,7 +76,14 @@ const products = [
             title: "Olive Green Midi Dress",
             description: "Elegant olive green sleeveless midi dress with a flattering waist tie. Ideal for casual or semi-formal events.",   
             price: "$100"
-        }
+        },
+        {
+            image: "../src/image/product/Striped_Relaxed_Shirt.png",
+            category: "Shirt",
+            title: "Striped Relaxed Shirt - Blue",
+            description: "This stylish button-up shirt features blue and white stripes, a collar, and a chest pocket with a brown rectangular patch. Made from 100% cotton, it offers a comfortable and breathable fit. Available in multiple sizes, it's perfect for both casual and semi-formal occasions.",   
+            price: "$30"
+        },
     ];
 
 // Lấy thẻ chứa danh sách sản phẩm
