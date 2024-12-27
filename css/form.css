@@ -424,3 +424,8 @@ input[type="hidden"] {
     animation: slideLeft 0.7s ease-in-out forwards;
 }
 
+@media (max-width: 768px) {
+    .information_header{
+        justify-content: space-between;
+    }
+}

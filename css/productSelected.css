@@ -1,5 +1,6 @@
 .body-1 {
     margin-top: 130px;
+    margin-bottom: 40px;
     padding: 20px;
     padding-top: 80px;
     width: 100%;
@@ -121,6 +122,7 @@
 
 .body-1-product-infor-right {
     padding: 0px 40px;
+    padding-top: 28px
 }
 
 hr {
@@ -220,6 +222,7 @@ input[type="hidden"] {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    gap: 20px;
 }
 
 .quantity-container label{
