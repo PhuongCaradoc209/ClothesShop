@@ -132,12 +132,12 @@ class Skirt extends Product {
     }
 
     setupStatisticFemale() {
-        this.statisticFemale.push(new Statistic("XS", 72, "N/A", "N/A", 63, 87));
-        this.statisticFemale.push(new Statistic("S", 72, "N/A", "N/A", 68, 90));
-        this.statisticFemale.push(new Statistic("M", 72, "N/A", "N/A", 73, 93));
-        this.statisticFemale.push(new Statistic("L", 74, "N/A", "N/A", 76, 96));
-        this.statisticFemale.push(new Statistic("XL", 74, "N/A", "N/A", 81, 99));
-        this.statisticFemale.push(new Statistic("XXL", 74, "N/A", "N/A", 86, 102));
+        this.statisticFemale.push(new Statistic("XS", 85, "N/A", "N/A", 63, 87));
+        this.statisticFemale.push(new Statistic("S", 85, "N/A", "N/A", 68, 90));
+        this.statisticFemale.push(new Statistic("M", 86, "N/A", "N/A", 73, 93));
+        this.statisticFemale.push(new Statistic("L", 87, "N/A", "N/A", 76, 96));
+        this.statisticFemale.push(new Statistic("XL", 88, "N/A", "N/A", 81, 99));
+        this.statisticFemale.push(new Statistic("XXL", 88, "N/A", "N/A", 86, 102));
     }
 
     getDetails() {
@@ -255,6 +255,36 @@ class Trousers extends Product {
     }
 }
 
+class Jeans extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticMale() {
+        this.statisticMale.push(new Statistic("XS", 70, "N/A", "N/A", 70, 92));
+        this.statisticMale.push(new Statistic("S", 72, "N/A", "N/A", 74, 94));
+        this.statisticMale.push(new Statistic("M", 74, "N/A", "N/A", 78, 96));
+        this.statisticMale.push(new Statistic("L", 76, "N/A", "N/A", 82, 98));
+        this.statisticMale.push(new Statistic("XL", 76, "N/A", "N/A", 86, 100));
+        this.statisticMale.push(new Statistic("XXL", 76, "N/A", "N/A", 90, 102));
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 69, "N/A", "N/A", 63, 90));
+        this.statisticFemale.push(new Statistic("S", 71, "N/A", "N/A", 68, 92));
+        this.statisticFemale.push(new Statistic("M", 71, "N/A", "N/A", 73, 94));
+        this.statisticFemale.push(new Statistic("L", 71, "N/A", "N/A", 77, 96));
+        this.statisticFemale.push(new Statistic("XL", 71, "N/A", "N/A", 81, 98));
+        this.statisticFemale.push(new Statistic("XXL", 71, "N/A", "N/A", 86, 100));
+    }
+
+    getDetails() {
+        return "These are jeans";
+    }
+}
+
 // Abstract Factory
 class ClothesFactory {
     createProduct(type) {
@@ -280,6 +310,8 @@ class ConcreteClothesFactory extends ClothesFactory {
                 return new Shorts();
             case 'Trousers':
                 return new Trousers();
+            case 'Jeans':
+                return new Jeans();
             default:
                 throw "Product type not found";
         }
@@ -392,22 +424,22 @@ recommend_btn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
-    if(getSelectedGender() === null){
-        alert("Gender not selected!");
+    if (getSelectedGender() === null) {
+        alert("WARNING: Gender not selected!");
         return;
     }
-    else if(weightInput.value === ""){
-        alert("Weight not inputed!");
-        return;
-    }
-
-    else if(heightInput.value === ""){
-        alert("Height not selected!");
+    else if (weightInput.value === "") {
+        alert("WARNING: Weight not inputted!");
         return;
     }
 
-    else if(getSelectedSkinTone() === null){
-        alert("Skin tone not selected!");
+    else if (heightInput.value === "") {
+        alert("WARNING: Height not inputted!");
+        return;
+    }
+
+    else if (getSelectedSkinTone() === null) {
+        alert("WARNING: Skin tone not selected!");
         return;
     }
 
@@ -556,6 +588,6 @@ function selectPattern(gender, height, bmi) {
         if (bmi <= 24.9) // short and slim
             return "Small and sleek patterns such as fine polka dots, vertical stripes, or subtle floral prints";
         else // short and fat
-            return "Large patterns such as horizontal stripes, large polka dots or floral prints";            
+            return "Large patterns such as horizontal stripes, large polka dots or floral prints";
     }
 } 
