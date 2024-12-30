@@ -63,6 +63,13 @@
         "price": "$40"
     },
     {
+        "image": "../src/image/product/grayShort.png",
+        "category": "Shorts",
+        "title": "Textured Gray Knit Shorts",
+        "description": "These gray shorts feature a textured knit fabric and an elastic waistband with a drawstring for a comfortable, adjustable fit. With two convenient side pockets, they offer practicality and style for everyday wear or lounging. Perfect for adding a touch of comfort to your casual wardrobe.",
+        "price": "$22"
+    },
+    {
         "image": "../src/image/product/Jeans.png",
         "category": "Jeans",
         "title": "Classic Wide-Leg Denim Jeans",
@@ -82,5 +89,12 @@
         "title": "Striped Relaxed Shirt - Blue",
         "description": "This stylish button-up shirt features blue and white stripes, a collar, and a chest pocket with a brown rectangular patch. Made from 100% cotton, it offers a comfortable and breathable fit. Available in multiple sizes, it's perfect for both casual and semi-formal occasions.",
         "price": "$30"
+    },
+    {
+        "image": "../src/image/product/abstractShort.png",
+        "category": "Shorts",
+        "title": "Abstract Beige Shorts",
+        "description": "These stylish beige shorts feature an abstract pattern with geometric shapes and lines in dark blue. Made from comfortable, breathable fabric, they have an elastic waistband with a drawstring for an adjustable fit. Perfect for adding a unique touch to your casual summer wardrobe.",
+        "price": "$20"
     }
 ]
