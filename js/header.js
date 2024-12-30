@@ -10,7 +10,7 @@ const updateMenuForMobile = () => {
             <ul class="dropdown">
                 <li><a href="/html/homePage.html">Home</a></li>
                 <li><a href="/html/shopPage.html">Shop</a></li>
-                <li><a href="/about">About Us</a></li>
+                <li><a href="/html/aboutUs.html">About Us</a></li>
             </ul>
         `;
         const menuButton = menu.querySelector('.menu-icon');
@@ -23,7 +23,7 @@ const updateMenuForMobile = () => {
             <ul>
                 <li><a href="/html/homePage.html">Home</a></li>
                 <li><a href="/html/shopPage.html">Shop</a></li>
-                <li><a href="/about">About Us</a></li>
+                <li><a href="/html/aboutUs.html">About Us</a></li>
             </ul>
         `;
     }
