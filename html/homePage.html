@@ -13,12 +13,6 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/header.css"> 
 
-    <!--JS IMPORT-->
-    <script src="/js/header.js"></script>
-
-    <!-- ICON -->
-    <script src="https://kit.fontawesome.com/c276420fe8.js" crossorigin="anonymous"></script>
-
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +28,7 @@
             <ul>
                 <li><a href="/html/homePage.html">Home</a></li>
                 <li><a href="/html/shopPage.html">Shop</a></li>
-                <li><a href="/about">About Us</a></li>
+                <li><a href="/html/aboutUs.html">About Us</a></li>
             </ul>
         </nav>
 
@@ -70,56 +64,8 @@
             <div class="body-2-title">
                 <p>New Arrivals</p>
             </div>
-            <div class="list-card">
-                <!-- Product 1 -->
-                <div class="card">
-                    <div class="card-product">
-                        <img src="../src/image/product/t-shirt.png" alt="Product 1">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-category">T-shirt</div>
-                        <div class="card-title">White Jackets with Zipper</div>
-                        <div class="card-price">$34</div>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="card">
-                    <div class="card-product">
-                        <img src="../src/image/product/jacket.png" alt="Product 2">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-category">Jackets</div>
-                        <div class="card-title">Gray Hoodie with Logo</div>
-                        <div class="card-price">$40</div>
-                    </div>
-                </div>
-            
-                <!-- Product 3 -->
-                <div class="card">
-                    <div class="card-product">
-                        <img src="../src/image/product/trousers.png" alt="Product 3">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-category">Trousers</div>
-                        <div class="card-title">Red Wool Sweater</div>
-                        <div class="card-price">$45</div>
-                    </div>
-                </div>
-            
-                <!-- Product 4 -->
-                <div class="card">
-                    <div class="card-product">
-                        <img src="../src/image/product/shorts.png" alt="Product 4">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-category">Shorts</div>
-                        <div class="card-title">Black Leather Jacket</div>
-                        <div class="card-price">$80</div>
-                    </div>
-                </div> 
-            </div>
-        </div>    
+            <div class="list-card" id="newArrivalsList"></div>
+        </div>        
         <div class="body-3">
             <div class="div1">
                 <img src="../src/image/background/div1.png" alt="Image 1">
@@ -176,4 +122,19 @@
         </div>
     </div>
 </body>
+
+    <script>
+        document.querySelectorAll(".overlay-btn").forEach((button) => {
+            button.addEventListener("click", () => {
+                window.location.href = "../html/shopPage.html";
+            });
+        });
+    </script>
+
+    <!--JS IMPORT-->
+    <script src="/js/header.js"></script>
+    <script src="/js/newArrivals.js"></script>
+
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/c276420fe8.js" crossorigin="anonymous"></script>
 </html>

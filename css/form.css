@@ -245,7 +245,7 @@ input[type="hidden"] {
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: var(--color-button);
+    background-color: var(--color-button);
     color: white;
     font-size: 20px;
     text-transform: uppercase;
@@ -273,13 +273,18 @@ input[type="hidden"] {
     font-weight: 550;
 }
 
+.in_body_1 span{
+    font-family: "DM Serif Text", serif;     
+    padding: 0px 40px;
+}
+
 .in_body_1 img {
     aspect-ratio: 1/1;
     width: 250px; 
     height: auto; 
     object-fit: cover; 
     border-radius: 8px; 
-    background-color: #d0d0d0;
+    background-color: #dedede;
     filter: drop-shadow(0 0 37px rgba(0, 0, 0, 0.226)); 
 }
 
@@ -419,3 +424,8 @@ input[type="hidden"] {
     animation: slideLeft 0.7s ease-in-out forwards;
 }
 
+@media (max-width: 768px) {
+    .information_header{
+        justify-content: space-between;
+    }
+}

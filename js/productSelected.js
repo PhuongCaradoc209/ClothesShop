@@ -132,12 +132,12 @@ class Skirt extends Product {
     }
 
     setupStatisticFemale() {
-        this.statisticFemale.push(new Statistic("XS", 72, "N/A", "N/A", 63, 87));
-        this.statisticFemale.push(new Statistic("S", 72, "N/A", "N/A", 68, 90));
-        this.statisticFemale.push(new Statistic("M", 72, "N/A", "N/A", 73, 93));
-        this.statisticFemale.push(new Statistic("L", 74, "N/A", "N/A", 76, 96));
-        this.statisticFemale.push(new Statistic("XL", 74, "N/A", "N/A", 81, 99));
-        this.statisticFemale.push(new Statistic("XXL", 74, "N/A", "N/A", 86, 102));
+        this.statisticFemale.push(new Statistic("XS", 85, "N/A", "N/A", 63, 87));
+        this.statisticFemale.push(new Statistic("S", 85, "N/A", "N/A", 68, 90));
+        this.statisticFemale.push(new Statistic("M", 86, "N/A", "N/A", 73, 93));
+        this.statisticFemale.push(new Statistic("L", 87, "N/A", "N/A", 76, 96));
+        this.statisticFemale.push(new Statistic("XL", 88, "N/A", "N/A", 81, 99));
+        this.statisticFemale.push(new Statistic("XXL", 88, "N/A", "N/A", 86, 102));
     }
 
     getDetails() {
@@ -255,6 +255,36 @@ class Trousers extends Product {
     }
 }
 
+class Jeans extends Product {
+    constructor(name) {
+        super(name);
+        this.setupStatisticMale();
+        this.setupStatisticFemale();
+    }
+
+    setupStatisticMale() {
+        this.statisticMale.push(new Statistic("XS", 70, "N/A", "N/A", 70, 92));
+        this.statisticMale.push(new Statistic("S", 72, "N/A", "N/A", 74, 94));
+        this.statisticMale.push(new Statistic("M", 74, "N/A", "N/A", 78, 96));
+        this.statisticMale.push(new Statistic("L", 76, "N/A", "N/A", 82, 98));
+        this.statisticMale.push(new Statistic("XL", 76, "N/A", "N/A", 86, 100));
+        this.statisticMale.push(new Statistic("XXL", 76, "N/A", "N/A", 90, 102));
+    }
+
+    setupStatisticFemale() {
+        this.statisticFemale.push(new Statistic("XS", 69, "N/A", "N/A", 63, 90));
+        this.statisticFemale.push(new Statistic("S", 71, "N/A", "N/A", 68, 92));
+        this.statisticFemale.push(new Statistic("M", 71, "N/A", "N/A", 73, 94));
+        this.statisticFemale.push(new Statistic("L", 71, "N/A", "N/A", 77, 96));
+        this.statisticFemale.push(new Statistic("XL", 71, "N/A", "N/A", 81, 98));
+        this.statisticFemale.push(new Statistic("XXL", 71, "N/A", "N/A", 86, 100));
+    }
+
+    getDetails() {
+        return "These are jeans";
+    }
+}
+
 // Abstract Factory
 class ClothesFactory {
     createProduct(type) {
@@ -280,6 +310,8 @@ class ConcreteClothesFactory extends ClothesFactory {
                 return new Shorts();
             case 'Trousers':
                 return new Trousers();
+            case 'Jeans':
+                return new Jeans();
             default:
                 throw "Product type not found";
         }
@@ -296,12 +328,14 @@ const image = sessionStorage.getItem('productImage');
 const title = sessionStorage.getItem('productTitle');
 const category = sessionStorage.getItem('productCategory');
 const price = sessionStorage.getItem('productPrice');
+const description = sessionStorage.getItem('productDescription');
 
 //DISPLAY PRODUCT INFORMATION
 document.getElementById('productImage').src = image;
 document.getElementById('productCategory').textContent = category;
 document.getElementById('productTitle').textContent = title;
 document.getElementById('productPrice').textContent = price;
+document.getElementById('productDescription').textContent = description;
 
 //DISPLAY PRODUCT SIZE
 const sizeOptions = document.querySelectorAll('.size-option');
@@ -392,10 +426,31 @@ recommend_btn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
+    if (getSelectedGender() === null) {
+        alert("WARNING: Gender not selected!");
+        return;
+    }
+    else if (weightInput.value === "") {
+        alert("WARNING: Weight not inputted!");
+        return;
+    }
+
+    else if (heightInput.value === "") {
+        alert("WARNING: Height not inputted!");
+        return;
+    }
+
+    else if (getSelectedSkinTone() === null) {
+        alert("WARNING: Skin tone not selected!");
+        return;
+    }
+
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
     information.classList.remove('hide');
     form.classList.add("slideLeft");
     information.classList.add('slideInRight');
+
+    handleResize();
 
     const weight = parseFloat(weightInput.value);
     const height = parseFloat(heightInput.value) / 100;
@@ -442,6 +497,59 @@ closeBtn.addEventListener('click', () => {
         }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
     }
 });
+
+handleResize();
+window.addEventListener('resize', handleResize);
+
+function handleResize() {
+    if(window.innerWidth <= 768) {
+        form.classList.add('hide');
+    }else{
+        if(form.classList.contains('hide')) {
+            form.classList.remove('hide');
+        }
+    }
+
+    addCloseButton();
+}
+
+function addCloseButton() {
+    const informationHeader = document.querySelector('.information_header');
+    if (!informationHeader) return;
+
+    // Kiểm tra nếu chưa có nút đóng và kích thước cửa sổ nhỏ hơn hoặc bằng 768px
+    if (window.innerWidth <= 768 && !informationHeader.querySelector('.close_btn')) {
+        const closeButton = document.createElement('i');
+        closeButton.className = 'fa-solid fa-xmark close_btn';
+        closeButton.addEventListener('click', () => {
+            if (information.classList.contains('slideInRight')) {
+                form.classList.remove("slideLeft");
+                form.classList.add('slideOutTop');
+                information.classList.add('slideOutTop');
+        
+                // Lắng nghe khi animation kết thúc
+                information.addEventListener('animationend', () => {
+                    model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+                    reset();
+                }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+            }
+            else {
+                form.classList.add("slideOutTop");
+        
+                // Lắng nghe khi animation kết thúc
+                form.addEventListener('animationend', () => {
+                    model.classList.add('hide'); // Ẩn sau khi animation kết thúc
+                    reset();
+                }, { once: true }); // Đảm bảo sự kiện chỉ chạy một lần
+            }
+        });
+        informationHeader.appendChild(closeButton); // Thêm nút vào tiêu đề
+    } else if (window.innerWidth > 768) {
+        // Chỉ xóa nút đóng bên trong .information_header
+        const closeButton = informationHeader.querySelector('.close_btn');
+        if (closeButton) closeButton.remove();
+    }
+}
 
 // Hàm lấy giá trị của radio button được chọn
 function getSelectedRadioValue(radios) {
@@ -537,6 +645,6 @@ function selectPattern(gender, height, bmi) {
         if (bmi <= 24.9) // short and slim
             return "Small and sleek patterns such as fine polka dots, vertical stripes, or subtle floral prints";
         else // short and fat
-            return "Large patterns such as horizontal stripes, large polka dots or floral prints";            
+            return "Large patterns such as horizontal stripes, large polka dots or floral prints";
     }
 } 
