@@ -7,11 +7,39 @@
         "price": "$34"
     },
     {
+        "image": "../src/image/product/navyJacket.png",
+        "category": "Jacket",
+        "title": "Navy Hooded Winter Jacket",
+        "description": "A navy-colored winter jacket with a hood, front zipper closure, and multiple pockets. Functional and stylish for cold weather.",
+        "price": "$50"
+    },
+    {
+        "image": "../src/image/product/denimSkirt.png",
+        "category": "Skirt",
+        "title": "Asymmetrical Denim Midi Skirt",
+        "description": "An asymmetrical high-waist denim skirt with a unique diagonal seam and frayed hem. Perfect for casual occasions.",
+        "price": "$40"
+    },
+    {
         "image": "../src/image/product/Dico_Mate_Tshirt.png",
         "category": "T-shirt",
         "title": "Dico Mate T-shirt",
         "description": "This comfy 100% cotton t-shirt features vibrant graphics with unique illustrations and \"DIRTYCOINS\" text along with its Japanese translation. Available in various colors and a relaxed fit, it's perfect for a bold casual look.",
         "price": "$18"
+    },
+    {
+        "image": "../src/image/product/floraDress.png",
+        "category": "Dress",
+        "title": "Blue Floral A-Line Dress",
+        "description": "White A-line dress with blue floral prints, featuring a fitted bodice, wide straps, and a slightly flared skirt. Perfect for casual outings and garden parties.",
+        "price": "$80"
+    },
+    {
+        "image": "../src/image/product/carharttJacket.png",
+        "category": "Jacket",
+        "title": "Carhartt Quilted Lined Jacket",
+        "description": "Navy blue jacket with a shearling collar, quilted lining, and multiple front pockets. Warm and practical for cold weather, featuring a secure zipper and snap button closure.",
+        "price": "$50"
     },
     {
         "image": "../src/image/product/Jacket.png",
@@ -42,6 +70,13 @@
         "price": "$45"
     },
     {
+        "image": "../src/image/product/denimShirt.png",
+        "category": "Shirt",
+        "title": "Denim Button-Up Shirt",
+        "description": "Long-sleeved denim shirt with a classic collar, single chest pocket, and button-up front. Suitable for various casual occasions.",
+        "price": "$55"
+    },
+    {
         "image": "../src/image/product/Shorts.png",
         "category": "Shorts",
         "title": "Khaki Cargo Shorts",
@@ -70,6 +105,13 @@
         "price": "$22"
     },
     {
+        "image": "../src/image/product/shirtDress.png",
+        "category": "Dress",
+        "title": "Beige Shirt Dress with Belt",
+        "description": "A beige shirt dress with a classic collar, button-down front, long sleeves, and a tie belt at the waist. Slightly flared skirt, perfect for casual and semi-formal occasions.",
+        "price": "$80"
+    },
+    {
         "image": "../src/image/product/Jeans.png",
         "category": "Jeans",
         "title": "Classic Wide-Leg Denim Jeans",
@@ -89,6 +131,13 @@
         "title": "Striped Relaxed Shirt - Blue",
         "description": "This stylish button-up shirt features blue and white stripes, a collar, and a chest pocket with a brown rectangular patch. Made from 100% cotton, it offers a comfortable and breathable fit. Available in multiple sizes, it's perfect for both casual and semi-formal occasions.",
         "price": "$30"
+    },
+    {
+        "image": "../src/image/product/Sundress.png",
+        "category": "Dress",
+        "title": "Coral Pink Sundress",
+        "description": "Charming coral pink sundress with thin shoulder straps and a gathered waist. Perfect for warm weather and casual outings.",
+        "price": "$80"
     },
     {
         "image": "../src/image/product/abstractShort.png",
