@@ -426,8 +426,8 @@ recommend_btn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
-    if (getSelectedGender() === null) {
-        alert("WARNING: Gender not selected!");
+    if (weightInput.value === "" && heightInput.value === "" && getSelectedSkinTone() === null ) {
+        alert("WARNING: Missing all information!");
         return;
     }
     else if (weightInput.value === "") {
@@ -443,6 +443,12 @@ submitBtn.addEventListener('click', () => {
     else if (getSelectedSkinTone() === null) {
         alert("WARNING: Skin tone not selected!");
         return;
+    }
+    else if (getSelectedGender() === 'male'){
+        if(category === 'Skirt' || category === 'Dress'){
+            alert("WARNING: This product is not suitable for male!");
+            return;
+        }
     }
 
     suggestionColor.textContent = selectColor(getSelectedSkinTone());
